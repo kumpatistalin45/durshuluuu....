@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>For Someone Special</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+        }
+
+
+        body {
+
+            background: #050509;
+
+            color: #f5f1f7;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            opacity: 1;
+
+            transition:
+                opacity 1.4s ease;
+
+        }
+
+
+        /* =========================
+           PAGE 1
+        ========================= */
+
+        .page {
+
+            width: 100%;
+            height: 100vh;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(105, 75, 130, 0.12),
+                    transparent 45%
+                ),
+
+                #050509;
+
+        }
+
+
+        /* =========================
+           SOFT CINEMATIC GLOW
+        ========================= */
+
+        .page::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(120, 80, 150, 0.08);
+
+            filter: blur(100px);
+
+            animation:
+                breathe 6s ease-in-out infinite;
+
+        }
+
+
+        @keyframes breathe {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(0.9);
+
+                opacity: 0.5;
+
+            }
+
+            50% {
+
+                transform:
+                    scale(1.15);
+
+                opacity: 0.9;
+
+            }
+
+        }
+
+
+        /* =========================
+           STARS
+        ========================= */
+
+        .stars {
+
+            position: absolute;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+        }
+
+
+        .star {
+
+            position: absolute;
+
+            width: 2px;
+            height: 2px;
+
+            background:
+                rgba(255, 255, 255, 0.7);
+
+            border-radius: 50%;
+
+            animation:
+                twinkle 4s ease-in-out infinite;
+
+        }
+
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+
+                opacity: 0.15;
+
+            }
+
+            50% {
+
+                opacity: 0.8;
+
+            }
+
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .opening-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            width:
+                min(850px, 90%);
+
+            text-align: center;
+
+        }
+
+
+        .line {
+
+            opacity: 0;
+
+            transform:
+                translateY(20px);
+
+            filter:
+                blur(6px);
+
+            transition:
+
+                opacity 2s ease,
+
+                transform 2s ease,
+
+                filter 2s ease;
+
+        }
+
+
+        .line.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+            filter:
+                blur(0);
+
+        }
+
+
+        .line-one {
+
+            font-size:
+                clamp(
+                    1rem,
+                    2vw,
+                    1.25rem
+                );
+
+            letter-spacing: 3px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.55
+                );
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .line-two {
+
+            font-size:
+                clamp(
+                    2rem,
+                    5vw,
+                    4.5rem
+                );
+
+            line-height: 1.15;
+
+            font-weight: 400;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .line-three {
+
+            font-size:
+                clamp(
+                    1.2rem,
+                    2.5vw,
+                    1.7rem
+                );
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.7
+                );
+
+            line-height: 1.7;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .line-four {
+
+            font-size:
+                clamp(
+                    1.3rem,
+                    3vw,
+                    2rem
+                );
+
+            font-style: italic;
+
+            color:
+                #d9c6e6;
+
+            line-height: 1.6;
+
+            margin-top: 25px;
+
+        }
+
+
+        /* =========================
+           ENTER BUTTON
+        ========================= */
+
+        .enter-btn {
+
+            margin-top: 55px;
+
+            padding:
+                16px 38px;
+
+            border:
+                1px solid
+                rgba(
+                    220,
+                    200,
+                    235,
+                    0.3
+                );
+
+            border-radius: 100px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.03
+                );
+
+            color:
+                #f5f1f7;
+
+            font-family: inherit;
+
+            font-size: 1rem;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            transform:
+                translateY(20px);
+
+            transition:
+
+                opacity 1.5s ease,
+
+                transform 1.5s ease,
+
+                background 0.4s ease,
+
+                border-color 0.4s ease,
+
+                box-shadow 0.4s ease;
+
+        }
+
+
+        .enter-btn.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        .enter-btn:hover {
+
+            background:
+                rgba(
+                    220,
+                    200,
+                    235,
+                    0.08
+                );
+
+            border-color:
+                rgba(
+                    220,
+                    200,
+                    235,
+                    0.65
+                );
+
+            box-shadow:
+
+                0 0 30px
+                rgba(
+                    180,
+                    130,
+                    210,
+                    0.15
+                );
+
+        }
+
+
+        /* =========================
+           PAGE TRANSITION
+        ========================= */
+
+        .transition-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 20;
+
+            background:
+                #050509;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 1.5s ease;
+
+        }
+
+
+        .transition-screen.active {
+
+            opacity: 1;
+
+            pointer-events: all;
+
+        }
+
+
+        .transition-text {
+
+            font-size:
+                clamp(
+                    1.2rem,
+                    3vw,
+                    2rem
+                );
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.75
+                );
+
+            letter-spacing: 2px;
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            transition:
+                all 1.5s ease;
+
+        }
+
+
+        .transition-screen.active
+        .transition-text {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .page::before {
+
+                width: 300px;
+
+                height: 300px;
+
+            }
+
+
+            .opening-content {
+
+                width: 88%;
+
+            }
+
+
+            .line-one {
+
+                letter-spacing: 2px;
+
+            }
+
+
+            .line-two {
+
+                line-height: 1.2;
+
+            }
+
+
+            .line-three {
+
+                line-height: 1.6;
+
+            }
+
+
+            .enter-btn {
+
+                padding:
+                    14px 30px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         PAGE 1
+    ========================== -->
+
+
+    <main class="page">
+
+
+        <div
+            class="stars"
+            id="stars">
+        </div>
+
+
+        <section class="opening-content">
+
+
+            <div
+                class="line line-one"
+                id="line1"
+            >
+
+                There are some things in life...
+
+            </div>
+
+
+            <div
+                class="line line-two"
+                id="line2"
+            >
+
+                That words never quite know
+                how to explain.
+
+            </div>
+
+
+            <div
+                class="line line-three"
+                id="line3"
+            >
+
+                Some people enter our lives quietly...
+
+            </div>
+
+
+            <div
+                class="line line-four"
+                id="line4"
+            >
+
+                And somehow, they become important.
+
+            </div>
+
+
+            <button
+                class="enter-btn"
+                id="enterBtn"
+            >
+
+                Enter ❤️
+
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         TRANSITION
+    ========================== -->
+
+
+    <div
+        class="transition-screen"
+        id="transitionScreen"
+    >
+
+        <div class="transition-text">
+
+            There is a story waiting for you...
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+
+        /* =========================
+           CREATE STARS
+        ========================= */
+
+
+        const starsContainer =
+            document.getElementById(
+                "stars"
+            );
+
+
+        for (
+            let i = 0;
+            i < 90;
+            i++
+        ) {
+
+            const star =
+                document.createElement(
+                    "div"
+                );
+
+
+            star.classList.add(
+                "star"
+            );
+
+
+            star.style.left =
+                Math.random() *
+                100 +
+                "%";
+
+
+            star.style.top =
+                Math.random() *
+                100 +
+                "%";
+
+
+            const size =
+                Math.random() * 2 + 1;
+
+
+            star.style.width =
+                size + "px";
+
+
+            star.style.height =
+                size + "px";
+
+
+            star.style.animationDelay =
+                Math.random() *
+                4 +
+                "s";
+
+
+            starsContainer.appendChild(
+                star
+            );
+
+        }
+
+
+        /* =========================
+           OPENING SEQUENCE
+        ========================= */
+
+
+        const lines = [
+
+            document.getElementById(
+                "line1"
+            ),
+
+            document.getElementById(
+                "line2"
+            ),
+
+            document.getElementById(
+                "line3"
+            ),
+
+            document.getElementById(
+                "line4"
+            )
+
+        ];
+
+
+        const enterBtn =
+            document.getElementById(
+                "enterBtn"
+            );
+
+
+        function showLine(
+            index,
+            delay
+        ) {
+
+            setTimeout(() => {
+
+                lines[index]
+                    .classList
+                    .add("show");
+
+            }, delay);
+
+        }
+
+
+        showLine(0, 1000);
+
+        showLine(1, 3500);
+
+        showLine(2, 6500);
+
+        showLine(3, 9000);
+
+
+        setTimeout(() => {
+
+            enterBtn
+                .classList
+                .add("show");
+
+        }, 11500);
+
+
+        /* =========================
+           PAGE 1 → PAGE 2
+        ========================= */
+
+
+        const transitionScreen =
+            document.getElementById(
+                "transitionScreen"
+            );
+
+
+        enterBtn.addEventListener(
+            "click",
+            () => {
+
+
+                /*
+                    First show the
+                    cinematic transition.
+                */
+
+                transitionScreen
+                    .classList
+                    .add("active");
+
+
+                /*
+                    Wait for the
+                    transition animation.
+                */
+
+                setTimeout(() => {
+
+
+                    /*
+                        Fade the current
+                        page away.
+                    */
+
+                    document.body.style.opacity =
+                        "0";
+
+
+                    /*
+                        Then open Page 2.
+                    */
+
+                    setTimeout(() => {
+
+                        window.location.href =
+                            "page2.html";
+
+                    }, 900);
+
+
+                }, 1600);
+
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

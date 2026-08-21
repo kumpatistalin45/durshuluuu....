@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Why Today Matters</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            background: #050509;
+
+            color: #f5f1f7;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            overflow-x: hidden;
+
+            opacity: 1;
+
+            transition:
+                opacity 1.6s ease;
+
+        }
+
+
+        /* =====================================================
+           MAIN PAGE
+        ===================================================== */
+
+        .page-eight {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                120px 24px
+                190px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(
+                        160,
+                        105,
+                        180,
+                        0.16
+                    ),
+                    transparent 43%
+                ),
+
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(
+                        110,
+                        75,
+                        145,
+                        0.07
+                    ),
+                    transparent 35%
+                ),
+
+                #050509;
+
+        }
+
+
+        /* =====================================================
+           CENTRAL GLOW
+        ===================================================== */
+
+        .main-glow {
+
+            position: absolute;
+
+            width: 700px;
+
+            height: 700px;
+
+            left: 50%;
+
+            top: 50%;
+
+            transform:
+                translate(
+                    -50%,
+                    -50%
+                );
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(
+                        190,
+                        135,
+                        210,
+                        0.10
+                    ),
+                    transparent 68%
+                );
+
+            filter: blur(35px);
+
+            animation:
+                breathe 8s
+                ease-in-out
+                infinite;
+
+            pointer-events: none;
+
+        }
+
+
+        @keyframes breathe {
+
+            0%,
+            100% {
+
+                transform:
+                    translate(
+                        -50%,
+                        -50%
+                    )
+                    scale(0.9);
+
+                opacity: 0.55;
+
+            }
+
+            50% {
+
+                transform:
+                    translate(
+                        -50%,
+                        -50%
+                    )
+                    scale(1.1);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           STARS
+        ===================================================== */
+
+        .stars {
+
+            position: absolute;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+        }
+
+
+        .star {
+
+            position: absolute;
+
+            width: 2px;
+
+            height: 2px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.7
+                );
+
+            animation:
+                twinkle 5s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+
+                opacity: 0.08;
+
+            }
+
+            50% {
+
+                opacity: 0.8;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CHAPTER
+        ===================================================== */
+
+        .chapter {
+
+            position: relative;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.68rem;
+
+            letter-spacing: 6px;
+
+            color:
+                rgba(
+                    240,
+                    225,
+                    247,
+                    0.4
+                );
+
+            margin-bottom: 45px;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.5s
+                ease forwards;
+
+            animation-delay:
+                0.5s;
+
+        }
+
+
+        /* =====================================================
+           FIRST MESSAGE
+        ===================================================== */
+
+        .first-message {
+
+            position: relative;
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                1s;
+
+        }
+
+
+        .first-message p {
+
+            font-size:
+                clamp(
+                    1.3rem,
+                    3vw,
+                    2.3rem
+                );
+
+            line-height: 1.7;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.58
+                );
+
+        }
+
+
+        /* =====================================================
+           PAUSE
+        ===================================================== */
+
+        .pause {
+
+            width: 1px;
+
+            height: 100px;
+
+            margin:
+                65px auto;
+
+            background:
+
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(
+                        220,
+                        195,
+                        235,
+                        0.55
+                    ),
+                    transparent
+                );
+
+            opacity: 0;
+
+            animation:
+                reveal 1.5s
+                ease forwards;
+
+            animation-delay:
+                2.2s;
+
+        }
+
+
+        /* =====================================================
+           BIG REVEAL
+        ===================================================== */
+
+        .birthday-reveal {
+
+            position: relative;
+
+            width:
+                min(
+                    1000px,
+                    94%
+                );
+
+            opacity: 0;
+
+            animation:
+                reveal 2.2s
+                ease forwards;
+
+            animation-delay:
+                2.8s;
+
+        }
+
+
+        .birthday-reveal .small {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size:
+                clamp(
+                    0.65rem,
+                    1.5vw,
+                    0.8rem
+                );
+
+            letter-spacing: 6px;
+
+            color:
+                rgba(
+                    240,
+                    220,
+                    247,
+                    0.42
+                );
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .birthday-reveal h1 {
+
+            font-size:
+                clamp(
+                    3.5rem,
+                    10vw,
+                    9rem
+                );
+
+            font-weight: 400;
+
+            line-height: 1;
+
+            letter-spacing:
+                -4px;
+
+            color:
+                #f8f0fa;
+
+            text-shadow:
+
+                0 0 45px
+                rgba(
+                    190,
+                    130,
+                    215,
+                    0.15
+                );
+
+        }
+
+
+        .birthday-reveal h1 span {
+
+            color:
+                #d9b8e5;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           DATE
+        ===================================================== */
+
+        .date-message {
+
+            margin-top: 55px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                4.1s;
+
+        }
+
+
+        .date-message p {
+
+            font-size:
+                clamp(
+                    1.2rem,
+                    2.7vw,
+                    2rem
+                );
+
+            line-height: 1.7;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.72
+                );
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           BEAUTIFUL STATEMENT
+        ===================================================== */
+
+        .statement {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            margin-top: 110px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                5s;
+
+        }
+
+
+        .statement p {
+
+            font-size:
+                clamp(
+                    1.15rem,
+                    2.7vw,
+                    1.8rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.56
+                );
+
+        }
+
+
+        .statement .highlight {
+
+            margin-top: 35px;
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    3.8vw,
+                    2.7rem
+                );
+
+            color:
+                rgba(
+                    241,
+                    220,
+                    248,
+                    0.94
+                );
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           FINAL BUILD UP
+        ===================================================== */
+
+        .build-up {
+
+            width:
+                min(
+                    900px,
+                    92%
+                );
+
+            margin-top: 130px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                6.1s;
+
+        }
+
+
+        .build-up p {
+
+            font-size:
+                clamp(
+                    1.2rem,
+                    3vw,
+                    2rem
+                );
+
+            line-height: 1.8;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.65
+                );
+
+        }
+
+
+        .build-up .final-line {
+
+            margin-top: 30px;
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    4vw,
+                    3rem
+                );
+
+            color:
+                #dfc4e8;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           NEXT BUTTON
+        ===================================================== */
+
+        .next-button {
+
+            margin-top: 110px;
+
+            border: none;
+
+            background:
+                transparent;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.45
+                );
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.8rem;
+
+            letter-spacing: 3px;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                7.8s;
+
+            transition:
+                color 0.4s ease;
+
+        }
+
+
+        .next-button:hover {
+
+            color:
+                #e3c8eb;
+
+        }
+
+
+        .next-button span {
+
+            display: block;
+
+            margin-top: 12px;
+
+            font-size: 1.4rem;
+
+            animation:
+                arrow 2s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes arrow {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(8px);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           TRANSITION
+        ===================================================== */
+
+        .transition-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            background:
+                #050509;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 1.5s ease;
+
+        }
+
+
+        .transition-screen.active {
+
+            opacity: 1;
+
+            pointer-events: all;
+
+        }
+
+
+        .transition-text {
+
+            text-align: center;
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    3vw,
+                    1.8rem
+                );
+
+            letter-spacing: 2px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.75
+                );
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            transition:
+                all 1.2s ease;
+
+        }
+
+
+        .transition-screen.active
+        .transition-text {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
+           REVEAL ANIMATION
+        ===================================================== */
+
+        @keyframes reveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+                filter:
+                    blur(7px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+                filter:
+                    blur(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .page-eight {
+
+                padding:
+                    90px 20px
+                    130px;
+
+            }
+
+
+            .chapter {
+
+                margin-bottom:
+                    35px;
+
+            }
+
+
+            .birthday-reveal h1 {
+
+                letter-spacing:
+                    -2px;
+
+            }
+
+
+            .pause {
+
+                height:
+                    70px;
+
+                margin:
+                    45px auto;
+
+            }
+
+
+            .date-message {
+
+                margin-top:
+                    40px;
+
+            }
+
+
+            .statement {
+
+                margin-top:
+                    80px;
+
+            }
+
+
+            .build-up {
+
+                margin-top:
+                    90px;
+
+            }
+
+
+            .next-button {
+
+                margin-top:
+                    80px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         PAGE 8
+    ===================================================== -->
+
+
+    <main class="page-eight">
+
+
+        <!-- Ambient -->
+
+        <div class="main-glow"></div>
+
+
+        <!-- Stars -->
+
+        <div
+            class="stars"
+            id="stars">
+        </div>
+
+
+        <!-- Chapter -->
+
+        <div class="chapter">
+
+For My Durshu...
+
+        </div>
+
+
+        <!-- First Message -->
+
+        <section class="first-message">
+
+            <p>
+
+                Now you know
+                what you mean to me.
+
+                <br><br>
+
+                But there is one reason
+                I made all of this...
+
+            </p>
+
+        </section>
+
+
+        <!-- Pause -->
+
+        <div class="pause"></div>
+
+
+        <!-- Birthday Reveal -->
+
+        <section class="birthday-reveal">
+
+
+            <div class="small">
+
+                THE REASON TODAY IS DIFFERENT
+
+            </div>
+
+
+            <h1>
+
+                Today...
+
+                <br>
+
+                <span>
+                    is yours.
+                </span>
+
+            </h1>
+
+
+        </section>
+
+
+        <!-- Date Message -->
+
+        <section class="date-message">
+
+            <p>
+
+                The day someone incredibly special
+                came into this world.
+
+            </p>
+
+        </section>
+
+
+        <!-- Statement -->
+
+        <section class="statement">
+
+
+            <p>
+
+                And maybe the world didn't know
+                how important that day would become.
+
+                <br><br>
+
+                Maybe it was just another day
+                on the calendar.
+
+            </p>
+
+
+            <p class="highlight">
+
+                But for me,
+                it became the day
+                that gave this world you.
+
+            </p>
+
+
+        </section>
+
+
+        <!-- Build Up -->
+
+        <section class="build-up">
+
+
+            <p>
+
+                I wish I could explain
+                how grateful I am
+                that our paths crossed.
+
+            </p>
+
+
+            <p>
+
+                Not every person we meet
+                leaves something behind.
+
+                <br>
+
+                You did.
+
+            </p>
+
+
+            <p class="final-line">
+
+                You left a little more light
+                in my life.
+
+            </p>
+
+
+        </section>
+
+
+        <!-- Next -->
+
+        <button
+            class="next-button"
+            id="nextButton">
+
+            There is still
+            one last page...
+
+            <span>
+
+                ↓
+
+            </span>
+
+        </button>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         TRANSITION
+    ===================================================== -->
+
+
+    <div
+        class="transition-screen"
+        id="transitionScreen">
+
+
+        <div class="transition-text">
+
+            There is still one last page...
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+        /* =====================================================
+           CREATE STARS
+        ===================================================== */
+
+
+        const starsContainer =
+            document.getElementById(
+                "stars"
+            );
+
+
+        for (
+            let i = 0;
+            i < 130;
+            i++
+        ) {
+
+
+            const star =
+                document.createElement(
+                    "div"
+                );
+
+
+            star.classList.add(
+                "star"
+            );
+
+
+            star.style.left =
+                Math.random() *
+                100 +
+                "%";
+
+
+            star.style.top =
+                Math.random() *
+                100 +
+                "%";
+
+
+            const size =
+                Math.random() *
+                2 +
+                1;
+
+
+            star.style.width =
+                size +
+                "px";
+
+
+            star.style.height =
+                size +
+                "px";
+
+
+            star.style.animationDelay =
+                Math.random() *
+                5 +
+                "s";
+
+
+            star.style.animationDuration =
+                (
+                    3 +
+                    Math.random() *
+                    5
+                ) +
+                "s";
+
+
+            starsContainer.appendChild(
+                star
+            );
+
+        }
+
+
+        /* =====================================================
+           PAGE 8 → PAGE 9
+        ===================================================== */
+
+
+        const nextButton =
+            document.getElementById(
+                "nextButton"
+            );
+
+
+        const transitionScreen =
+            document.getElementById(
+                "transitionScreen"
+            );
+
+
+        nextButton.addEventListener(
+            "click",
+            () => {
+
+
+                /*
+                    Start transition
+                */
+
+                transitionScreen
+                    .classList
+                    .add("active");
+
+
+                /*
+                    Fade current page
+                */
+
+                setTimeout(() => {
+
+                    document.body.style.opacity =
+                        "0";
+
+                }, 1000);
+
+
+                /*
+                    Redirect to final page
+                */
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        "page9.html";
+
+                }, 2000);
+
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

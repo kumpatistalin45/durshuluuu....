@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>For You, Always</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            background: #030305;
+
+            color: #f8f2fa;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* =====================================================
+           FINAL PAGE
+        ===================================================== */
+
+        .final-page {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(
+                        3,
+                        3,
+                        5,
+                        0.58
+                    ),
+                    rgba(
+                        3,
+                        3,
+                        5,
+                        0.82
+                    )
+                ),
+
+                url("background.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            background-attachment: fixed;
+
+        }
+
+
+        /* =====================================================
+           PHOTO DARK OVERLAY
+        ===================================================== */
+
+        .final-page::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                radial-gradient(
+                    circle at center 35%,
+                    rgba(
+                        170,
+                        110,
+                        190,
+                        0.15
+                    ),
+                    transparent 40%
+                );
+
+            pointer-events: none;
+
+            z-index: 0;
+
+        }
+
+
+        /* =====================================================
+           STARS
+        ===================================================== */
+
+        .stars {
+
+            position: absolute;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+        }
+
+
+        .star {
+
+            position: absolute;
+
+            width: 2px;
+
+            height: 2px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.75
+                );
+
+            opacity: 0;
+
+            animation:
+                starAppear 4s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes starAppear {
+
+            0% {
+                opacity: 0.05;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+
+            100% {
+                opacity: 0.05;
+            }
+
+        }
+
+
+        /* =====================================================
+           INITIAL CINEMATIC SCREEN
+        ===================================================== */
+
+        .opening-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            background: #030305;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            transition:
+                opacity 2s ease;
+
+        }
+
+
+        .opening-screen.hide {
+
+            opacity: 0;
+
+            pointer-events: none;
+
+        }
+
+
+        .opening-text {
+
+            width:
+                min(
+                    800px,
+                    90%
+                );
+
+            opacity: 0;
+
+            animation:
+                fadeIn 2s
+                ease forwards;
+
+            animation-delay:
+                0.8s;
+
+        }
+
+
+        .opening-text p {
+
+            font-size:
+                clamp(
+                    1.2rem,
+                    3vw,
+                    2rem
+                );
+
+            line-height: 1.8;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.65
+                );
+
+            font-style: italic;
+
+        }
+
+
+        .opening-text small {
+
+            display: block;
+
+            margin-top: 30px;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.65rem;
+
+            letter-spacing: 5px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.3
+                );
+
+        }
+
+
+        /* =====================================================
+           MAIN CONTENT
+        ===================================================== */
+
+        .content {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding:
+                130px 20px
+                150px;
+
+            opacity: 0;
+
+            transition:
+                opacity 2s ease;
+
+        }
+
+
+        .content.show {
+            opacity: 1;
+        }
+
+
+        /* =====================================================
+           NAME
+        ===================================================== */
+
+        .name-intro {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.65rem;
+
+            letter-spacing: 6px;
+
+            color:
+                rgba(
+                    240,
+                    220,
+                    247,
+                    0.52
+                );
+
+            margin-bottom: 35px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                0.8s;
+
+        }
+
+
+        .name {
+
+            font-size:
+                clamp(
+                    3.5rem,
+                    11vw,
+                    9.5rem
+                );
+
+            line-height: 0.95;
+
+            font-weight: 400;
+
+            letter-spacing: -5px;
+
+            color: #faf4fc;
+
+            text-shadow:
+
+                0 0 50px
+                rgba(
+                    190,
+                    130,
+                    215,
+                    0.28
+                ),
+
+                0 5px 25px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.5
+                );
+
+            opacity: 0;
+
+            animation:
+                nameReveal 2.5s
+                ease forwards;
+
+            animation-delay:
+                1.4s;
+
+        }
+
+
+        .name span {
+
+            display: block;
+
+            color: #e3c4eb;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           SMALL MESSAGE
+        ===================================================== */
+
+        .under-name {
+
+            margin-top: 45px;
+
+            width:
+                min(
+                    800px,
+                    92%
+                );
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                3.1s;
+
+        }
+
+
+        .under-name p {
+
+            font-size:
+                clamp(
+                    1.2rem,
+                    2.8vw,
+                    2rem
+                );
+
+            line-height: 1.7;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.75
+                );
+
+            font-style: italic;
+
+            text-shadow:
+                0 3px 15px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.55
+                );
+
+        }
+
+
+        /* =====================================================
+           DIVIDER
+        ===================================================== */
+
+        .divider {
+
+            width: 1px;
+
+            height: 110px;
+
+            margin:
+                75px auto;
+
+            background:
+
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(
+                        220,
+                        195,
+                        235,
+                        0.75
+                    ),
+                    transparent
+                );
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                4s;
+
+        }
+
+
+        /* =====================================================
+           EMOTIONAL MESSAGE
+        ===================================================== */
+
+        .emotional {
+
+            width:
+                min(
+                    800px,
+                    92%
+                );
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                4.5s;
+
+        }
+
+
+        .emotional p {
+
+            font-size:
+                clamp(
+                    1.05rem,
+                    2.4vw,
+                    1.5rem
+                );
+
+            line-height: 2;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.7
+                );
+
+            text-shadow:
+                0 3px 15px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.55
+                );
+
+        }
+
+
+        .emotional .highlight {
+
+            margin-top: 35px;
+
+            font-size:
+                clamp(
+                    1.4rem,
+                    3.5vw,
+                    2.4rem
+                );
+
+            color:
+                rgba(
+                    240,
+                    218,
+                    248,
+                    0.98
+                );
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           BIG QUOTE
+        ===================================================== */
+
+        .big-quote {
+
+            width:
+                min(
+                    900px,
+                    92%
+                );
+
+            margin-top: 110px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                5.7s;
+
+        }
+
+
+        .big-quote p {
+
+            font-size:
+                clamp(
+                    1.7rem,
+                    4.5vw,
+                    3.5rem
+                );
+
+            line-height: 1.5;
+
+            color:
+                rgba(
+                    250,
+                    239,
+                    252,
+                    0.96
+                );
+
+            font-style: italic;
+
+            text-shadow:
+
+                0 4px 25px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.65
+                );
+
+        }
+
+
+        /* =====================================================
+           BIRTHDAY
+        ===================================================== */
+
+        .birthday {
+
+            margin-top: 130px;
+
+            opacity: 0;
+
+            animation:
+                birthdayReveal 2.8s
+                ease forwards;
+
+            animation-delay:
+                7.2s;
+
+        }
+
+
+        .birthday-small {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size:
+                clamp(
+                    0.6rem,
+                    1.4vw,
+                    0.75rem
+                );
+
+            letter-spacing: 7px;
+
+            color:
+                rgba(
+                    240,
+                    220,
+                    247,
+                    0.55
+                );
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .birthday h1 {
+
+            font-size:
+                clamp(
+                    3.2rem,
+                    10vw,
+                    9.5rem
+                );
+
+            line-height: 0.95;
+
+            font-weight: 400;
+
+            letter-spacing: -4px;
+
+            color: #fff7ff;
+
+            text-shadow:
+
+                0 0 60px
+                rgba(
+                    190,
+                    130,
+                    215,
+                    0.35
+                ),
+
+                0 5px 30px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.7
+                );
+
+        }
+
+
+        .birthday h1 span {
+
+            display: block;
+
+            color: #e5c2ec;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           WISH
+        ===================================================== */
+
+        .wish {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            margin-top: 95px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                9.2s;
+
+        }
+
+
+        .wish p {
+
+            font-size:
+                clamp(
+                    1.05rem,
+                    2.3vw,
+                    1.45rem
+                );
+
+            line-height: 1.95;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.68
+                );
+
+            margin-bottom: 32px;
+
+            text-shadow:
+                0 3px 15px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.6
+                );
+
+        }
+
+
+        .wish .main-wish {
+
+            margin-top: 35px;
+
+            font-size:
+                clamp(
+                    1.4rem,
+                    3.5vw,
+                    2.4rem
+                );
+
+            color:
+                rgba(
+                    241,
+                    221,
+                    248,
+                    0.98
+                );
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           FINAL QUOTE
+        ===================================================== */
+
+        .final-quote {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            margin-top: 120px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                10.5s;
+
+        }
+
+
+        .final-quote p {
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    2.6vw,
+                    1.6rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.62
+                );
+
+            text-shadow:
+                0 3px 15px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.6
+                );
+
+        }
+
+
+        .final-quote .last {
+
+            margin-top: 35px;
+
+            font-size:
+                clamp(
+                    1.4rem,
+                    3.5vw,
+                    2.5rem
+                );
+
+            color: #e2c3e9;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           ENDING
+        ===================================================== */
+
+        .ending {
+
+            margin-top: 110px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                12s;
+
+        }
+
+
+        .ending p {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.6rem;
+
+            letter-spacing: 5px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.38
+                );
+
+        }
+
+
+        .symbol {
+
+            margin-top: 25px;
+
+            font-size: 1.5rem;
+
+            color:
+                rgba(
+                    220,
+                    185,
+                    235,
+                    0.85
+                );
+
+            animation:
+                heartbeat 2.3s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        /* =====================================================
+           NEXT PAGE BUTTON
+        ===================================================== */
+
+        .next-btn {
+
+            margin-top: 65px;
+
+            padding:
+                16px 34px;
+
+            border:
+                1px solid
+                rgba(
+                    225,
+                    200,
+                    235,
+                    0.35
+                );
+
+            border-radius: 100px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.035
+                );
+
+            color:
+                rgba(
+                    250,
+                    243,
+                    252,
+                    0.78
+                );
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size:
+                0.72rem;
+
+            letter-spacing: 2.5px;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                13s;
+
+            transition:
+                all 0.5s ease;
+
+        }
+
+
+        .next-btn:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(
+                    235,
+                    210,
+                    245,
+                    0.85
+                );
+
+            background:
+                rgba(
+                    220,
+                    190,
+                    235,
+                    0.09
+                );
+
+            box-shadow:
+
+                0 0 35px
+                rgba(
+                    180,
+                    130,
+                    210,
+                    0.2
+                );
+
+        }
+
+
+        .next-btn span {
+
+            display: block;
+
+            margin-top: 9px;
+
+            font-size: 1.1rem;
+
+        }
+
+
+        /* =====================================================
+           PAGE TRANSITION
+        ===================================================== */
+
+        .page-transition {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            background: #030305;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 1.5s ease;
+
+        }
+
+
+        .page-transition.active {
+
+            opacity: 1;
+
+            pointer-events: all;
+
+        }
+
+
+        .page-transition p {
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.75
+                );
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    3vw,
+                    1.8rem
+                );
+
+            letter-spacing: 2px;
+
+            animation:
+                transitionText 1.5s
+                ease forwards;
+
+        }
+
+
+        @keyframes transitionText {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+
+                filter:
+                    blur(7px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+                filter:
+                    blur(0);
+
+            }
+
+        }
+
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+
+            }
+
+            50% {
+
+                transform:
+                    scale(1.2);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+
+                filter:
+                    blur(7px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+                filter:
+                    blur(0);
+
+            }
+
+        }
+
+
+        @keyframes reveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+                filter:
+                    blur(7px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+                filter:
+                    blur(0);
+
+            }
+
+        }
+
+
+        @keyframes nameReveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.9)
+                    translateY(35px);
+
+                filter:
+                    blur(12px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+
+                filter:
+                    blur(0);
+
+            }
+
+        }
+
+
+        @keyframes birthdayReveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.88)
+                    translateY(35px);
+
+                filter:
+                    blur(15px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+
+                filter:
+                    blur(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .final-page {
+
+                background-attachment:
+                    scroll;
+
+                background-position:
+                    center center;
+
+            }
+
+
+            .content {
+
+                padding:
+                    100px 20px
+                    120px;
+
+            }
+
+
+            .name {
+
+                letter-spacing:
+                    -2px;
+
+            }
+
+
+            .birthday {
+
+                margin-top:
+                    90px;
+
+            }
+
+
+            .birthday h1 {
+
+                letter-spacing:
+                    -2px;
+
+            }
+
+
+            .wish {
+
+                margin-top:
+                    70px;
+
+            }
+
+
+            .final-quote {
+
+                margin-top:
+                    90px;
+
+            }
+
+
+            .ending {
+
+                margin-top:
+                    80px;
+
+            }
+
+
+            .next-btn {
+
+                margin-top:
+                    55px;
+
+                padding:
+                    14px 28px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         STARS
+    ===================================================== -->
+
+    <div
+        class="stars"
+        id="stars">
+    </div>
+
+
+    <!-- =====================================================
+         INITIAL CINEMATIC SCREEN
+    ===================================================== -->
+
+    <section
+        class="opening-screen"
+        id="openingScreen"
+    >
+
+        <div class="opening-text">
+
+            <p>
+
+                Before you leave this page...
+
+                <br><br>
+
+                take a moment.
+
+                <br>
+
+                This one is just for you.
+
+            </p>
+
+
+            <small>
+
+                
+
+            </small>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FINAL CONTENT
+    ===================================================== -->
+
+    <main
+        class="final-page"
+        id="finalPage"
+    >
+
+        <section
+            class="content"
+            id="content"
+        >
+
+
+            <!-- =================================================
+                 NAME
+            ================================================= -->
+
+            <div class="name-intro">
+
+                THIS IS FOR YOU
+
+            </div>
+
+
+            <h1 class="name">
+
+                <span>
+                    Durshu.....
+                </span>
+
+            </h1>
+
+
+            <!-- =================================================
+                 UNDER NAME
+            ================================================= -->
+
+            <section class="under-name">
+
+                <p>
+
+                    If you ever wondered
+                    how much one person
+                    can mean to another...
+
+                    <br><br>
+
+                    maybe this is my answer.
+
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 DIVIDER
+            ================================================= -->
+
+            <div class="divider"></div>
+
+
+            <!-- =================================================
+                 EMOTIONAL
+            ================================================= -->
+
+            <section class="emotional">
+
+                <p>
+
+                    I could have simply sent you
+                    a birthday message.
+
+                    <br><br>
+
+                    A simple "Happy Birthday"
+                    would have been enough
+                    for most people.
+
+                </p>
+
+
+                <br><br>
+
+
+                <p>
+
+                    But you were never
+                    just "most people" to me.
+
+                </p>
+
+
+                <p class="highlight">
+
+                    So I wanted to give you
+                    something that would stay
+                    a little longer than a message.
+
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 BIG QUOTE
+            ================================================= -->
+
+            <section class="big-quote">
+
+                <p>
+
+                    "Some people enter your life
+                    and leave memories.
+
+                    <br><br>
+
+                    Some enter your life
+                    and become one."
+
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 BIRTHDAY
+            ================================================= -->
+
+            <section class="birthday">
+
+                <div class="birthday-small">
+
+                    TODAY IS YOUR DAY
+
+                </div>
+
+
+                <h1>
+
+                    Happy
+
+                    <span>
+                        Birthday
+                    </span>
+                    <span>
+                        Durshammaa❤️🫂
+                    </span>
+
+                </h1>
+
+            </section>
+
+
+            <!-- =================================================
+                 WISH
+            ================================================= -->
+
+            <section class="wish">
+
+                <p>
+
+                    May this year bring you
+                    closer to every dream
+                    you are quietly carrying.
+
+                </p>
+
+
+                <p>
+
+                    May you find reasons to smile
+                    on the days you expect nothing
+                    from the world.
+
+                </p>
+
+
+                <p>
+
+                    May the people around you
+                    remind you of your worth
+                    whenever you forget it yourself.
+
+                </p>
+
+
+                <p class="main-wish">
+
+                    And may life be gentle
+                    with the beautiful heart
+                    you carry.
+
+                </p>
+            </section>
+
+
+            <!-- =================================================
+                 FINAL QUOTE
+            ================================================= -->
+
+            <section class="final-quote">
+
+                <p>
+
+                    I don't know what the future
+                    will look like.
+
+                    <br><br>
+
+                    I don't know where life
+                    will take either of us.
+
+                </p>
+
+
+                <p class="last">
+
+                    But I'm genuinely glad
+                    that somewhere along
+                    the way...
+
+                    <br><br>
+
+                    I got to know you....
+
+    I LOVE U MERI JAAN❤️
+
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 ENDING
+            ================================================= -->
+
+            <section class="ending">
+
+                <p>
+
+                    WITH ALL THE WARMTH
+                    IN MY HEART-
+                    Yours Durshika❤️
+
+                </p>
+
+
+                <div class="symbol">
+
+                    ✦
+
+                </div>
+
+
+                <!-- NEXT PAGE -->
+
+
+            </section>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         PAGE TRANSITION
+    ===================================================== -->
+
+    <div
+        class="page-transition"
+        id="pageTransition"
+    >
+
+        <p>
+
+            THE END🫂
+
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           CREATE STARS
+        ===================================================== */
+
+        const starsContainer =
+            document.getElementById(
+                "stars"
+            );
+
+
+        for (
+            let i = 180;
+            i > 0;
+            i--
+        ) {
+
+            const star =
+                document.createElement(
+                    "div"
+                );
+
+
+            star.classList.add(
+                "star"
+            );
+
+
+            star.style.left =
+                Math.random() *
+                100 +
+                "%";
+
+
+            star.style.top =
+                Math.random() *
+                100 +
+                "%";
+
+
+            const size =
+                Math.random() *
+                2.2 +
+                0.8;
+
+
+            star.style.width =
+                size +
+                "px";
+
+
+            star.style.height =
+                size +
+                "px";
+
+
+            star.style.animationDelay =
+                Math.random() *
+                6 +
+                "s";
+
+
+            star.style.animationDuration =
+                (
+                    3 +
+                    Math.random() *
+                    5
+                ) +
+                "s";
+
+
+            starsContainer.appendChild(
+                star
+            );
+
+        }
+
+
+        /* =====================================================
+           OPEN FINAL PAGE
+        ===================================================== */
+
+        const openingScreen =
+            document.getElementById(
+                "openingScreen"
+            );
+
+
+        const content =
+            document.getElementById(
+                "content"
+            );
+
+
+        setTimeout(
+            () => {
+
+                openingScreen.classList.add(
+                    "hide"
+                );
+
+
+                content.classList.add(
+                    "show"
+                );
+
+            },
+            4500
+        );
+
+
+        /* =====================================================
+           PAGE 10 → PAGE 11
+        ===================================================== */
+
+        const nextBtn =
+            document.getElementById(
+                "nextBtn"
+            );
+
+
+        const pageTransition =
+            document.getElementById(
+                "pageTransition"
+            );
+
+
+        nextBtn.addEventListener(
+            "click",
+            () => {
+
+                pageTransition.classList.add(
+                    "active"
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        window.location.href =
+                            "page11.html";
+
+                    },
+                    1600
+                );
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

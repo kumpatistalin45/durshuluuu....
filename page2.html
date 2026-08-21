@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>And Then, You Happened</title>
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            background: #050509;
+
+            color: #f5f1f7;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            overflow-x: hidden;
+
+            opacity: 1;
+
+            transition:
+                opacity 1.4s ease;
+
+        }
+
+
+        /* =====================================================
+           PAGE 2
+        ===================================================== */
+
+        .page-two {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                110px 24px
+                160px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 15%,
+                    rgba(
+                        120,
+                        82,
+                        145,
+                        0.15
+                    ),
+                    transparent 38%
+                ),
+
+                radial-gradient(
+                    circle at 50% 70%,
+                    rgba(
+                        100,
+                        70,
+                        130,
+                        0.07
+                    ),
+                    transparent 45%
+                ),
+
+                #050509;
+
+        }
+
+
+        /* =====================================================
+           CINEMATIC LIGHT
+        ===================================================== */
+
+        .ambient-light {
+
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            top: -200px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(
+                        180,
+                        130,
+                        205,
+                        0.08
+                    ),
+                    transparent 68%
+                );
+
+            filter: blur(30px);
+
+            pointer-events: none;
+
+            animation:
+                breathe 8s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes breathe {
+
+            0%,
+            100% {
+
+                transform:
+                    translateX(-50%)
+                    scale(0.9);
+
+            }
+
+            50% {
+
+                transform:
+                    translateX(-50%)
+                    scale(1.1);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           STARS
+        ===================================================== */
+
+        .stars {
+
+            position: absolute;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+        }
+
+
+        .star {
+
+            position: absolute;
+
+            width: 2px;
+
+            height: 2px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.7
+                );
+
+            animation:
+                twinkle 4s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+
+                opacity: 0.1;
+
+            }
+
+            50% {
+
+                opacity: 0.8;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CHAPTER
+        ===================================================== */
+
+        .chapter {
+
+            position: relative;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.68rem;
+
+            letter-spacing: 6px;
+
+            color:
+                rgba(
+                    240,
+                    225,
+                    247,
+                    0.42
+                );
+
+            margin-bottom: 28px;
+
+            opacity: 0;
+
+            transform:
+                translateY(20px);
+
+            animation:
+                reveal 1.5s
+                ease forwards;
+
+            animation-delay:
+                0.5s;
+
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .title {
+
+            position: relative;
+
+            text-align: center;
+
+            font-size:
+                clamp(
+                    3.2rem,
+                    8vw,
+                    7rem
+                );
+
+            line-height: 1.02;
+
+            font-weight: 400;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 100px;
+
+            opacity: 0;
+
+            transform:
+                translateY(35px);
+
+            animation:
+                reveal 1.8s
+                ease forwards;
+
+            animation-delay:
+                1s;
+
+        }
+
+
+        .title span {
+
+            color:
+                #d9c4e5;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           MAIN QUOTE
+        ===================================================== */
+
+        .quote-section {
+
+            position: relative;
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 125px;
+
+            opacity: 0;
+
+            transform:
+                translateY(30px);
+
+            animation:
+                reveal 1.8s
+                ease forwards;
+
+            animation-delay:
+                1.6s;
+
+        }
+
+
+        .quote {
+
+            position: relative;
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    3.2vw,
+                    2.7rem
+                );
+
+            line-height: 1.5;
+
+            font-style: italic;
+
+            color:
+                rgba(
+                    250,
+                    246,
+                    252,
+                    0.94
+                );
+
+        }
+
+
+        .quote small {
+
+            display: block;
+
+            margin-top: 25px;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.8rem;
+
+            letter-spacing: 3px;
+
+            font-style: normal;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.38
+                );
+
+        }
+
+
+        .quote-mark {
+
+            position: absolute;
+
+            font-size: 8rem;
+
+            line-height: 1;
+
+            color:
+                rgba(
+                    190,
+                    150,
+                    215,
+                    0.1
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        .quote-mark.left {
+
+            left: -50px;
+
+            top: -60px;
+
+        }
+
+
+        .quote-mark.right {
+
+            right: -50px;
+
+            bottom: -100px;
+
+        }
+
+
+        /* =====================================================
+           STORY
+        ===================================================== */
+
+        .story {
+
+            width:
+                min(
+                    720px,
+                    92%
+                );
+
+            text-align: center;
+
+            position: relative;
+
+        }
+
+
+        .story p {
+
+            font-size:
+                clamp(
+                    1.05rem,
+                    2vw,
+                    1.35rem
+                );
+
+            line-height: 2;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.62
+                );
+
+            margin-bottom: 65px;
+
+            opacity: 0;
+
+            transform:
+                translateY(25px);
+
+            animation:
+                reveal 1.6s
+                ease forwards;
+
+        }
+
+
+        .story p:nth-child(1) {
+
+            animation-delay:
+                2.2s;
+
+        }
+
+
+        .story p:nth-child(2) {
+
+            animation-delay:
+                2.7s;
+
+        }
+
+
+        .story p:nth-child(3) {
+
+            animation-delay:
+                3.2s;
+
+        }
+
+
+        .story p:nth-child(4) {
+
+            animation-delay:
+                3.7s;
+
+        }
+
+
+        .story p:nth-child(5) {
+
+            animation-delay:
+                4.2s;
+
+        }
+
+
+        /* =====================================================
+           EMPHASIS
+        ===================================================== */
+
+        .emphasis {
+
+            color:
+                rgba(
+                    245,
+                    231,
+                    250,
+                    0.92
+                ) !important;
+
+            font-size:
+                clamp(
+                    1.4rem,
+                    3vw,
+                    2rem
+                ) !important;
+
+            font-style:
+                italic;
+
+        }
+
+
+        /* =====================================================
+           REALIZATION
+        ===================================================== */
+
+        .realization {
+
+            position: relative;
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-top: 70px;
+
+            margin-bottom: 150px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                5s;
+
+        }
+
+
+        .vertical-line {
+
+            width: 1px;
+
+            height: 90px;
+
+            margin:
+                0 auto 50px;
+
+            background:
+
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(
+                        220,
+                        190,
+                        235,
+                        0.55
+                    ),
+                    transparent
+                );
+
+        }
+
+
+        .realization-intro {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size:
+                clamp(
+                    0.8rem,
+                    1.5vw,
+                    1rem
+                );
+
+            letter-spacing: 3px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.38
+                );
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .realization h2 {
+
+            font-size:
+                clamp(
+                    2rem,
+                    5vw,
+                    4.2rem
+                );
+
+            font-weight: 400;
+
+            line-height: 1.35;
+
+        }
+
+
+        .realization h2 span {
+
+            color:
+                #d7bce5;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           ENDING
+        ===================================================== */
+
+        .ending {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 110px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                6s;
+
+        }
+
+
+        .ending p {
+
+            font-size:
+                clamp(
+                    1.15rem,
+                    2.5vw,
+                    1.65rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.57
+                );
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .ending .final-thought {
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    3.5vw,
+                    2.4rem
+                );
+
+            color:
+                rgba(
+                    240,
+                    220,
+                    247,
+                    0.9
+                );
+
+            font-style:
+                italic;
+
+        }
+
+
+        /* =====================================================
+           CONTINUE BUTTON
+        ===================================================== */
+
+        .continue {
+
+            background:
+                transparent;
+
+            border: none;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.5
+                );
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            letter-spacing: 3px;
+
+            font-size: 0.85rem;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                7.5s;
+
+            transition:
+                color 0.4s ease;
+
+        }
+
+
+        .continue:hover {
+
+            color:
+                #e4c9ed;
+
+        }
+
+
+        .continue span {
+
+            display: block;
+
+            font-size: 1.4rem;
+
+            margin-top: 12px;
+
+            animation:
+                arrow 2s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes arrow {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(8px);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           REVEAL
+        ===================================================== */
+
+        @keyframes reveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+                filter:
+                    blur(6px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+                filter:
+                    blur(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           PAGE TRANSITION OVERLAY
+        ===================================================== */
+
+        .page-transition {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            background:
+                #050509;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 1.4s ease;
+
+        }
+
+
+        .page-transition.active {
+
+            opacity: 1;
+
+            pointer-events: all;
+
+        }
+
+
+        .transition-message {
+
+            text-align: center;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.75
+                );
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    3vw,
+                    1.8rem
+                );
+
+            letter-spacing: 2px;
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            transition:
+                all 1.2s ease;
+
+        }
+
+
+        .page-transition.active
+        .transition-message {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .page-two {
+
+                padding:
+                    90px 20px
+                    120px;
+
+            }
+
+
+            .title {
+
+                letter-spacing:
+                    -1.5px;
+
+                margin-bottom:
+                    75px;
+
+            }
+
+
+            .quote-section {
+
+                margin-bottom:
+                    100px;
+
+            }
+
+
+            .quote-mark {
+
+                font-size:
+                    5rem;
+
+            }
+
+
+            .quote-mark.left {
+
+                left:
+                    -15px;
+
+                top:
+                    -45px;
+
+            }
+
+
+            .quote-mark.right {
+
+                right:
+                    -15px;
+
+                bottom:
+                    -70px;
+
+            }
+
+
+            .story p {
+
+                line-height:
+                    1.85;
+
+                margin-bottom:
+                    50px;
+
+            }
+
+
+            .realization {
+
+                margin-top:
+                    40px;
+
+                margin-bottom:
+                    110px;
+
+            }
+
+
+            .vertical-line {
+
+                height:
+                    70px;
+
+                margin-bottom:
+                    40px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         PAGE 2
+    ===================================================== -->
+
+
+    <main class="page-two">
+
+
+        <!-- Ambient Light -->
+
+        <div class="ambient-light"></div>
+
+
+        <!-- Stars -->
+
+        <div
+            class="stars"
+            id="stars">
+        </div>
+
+
+        <!-- Chapter -->
+
+        <div class="chapter">
+
+            For My Durshu...
+
+        </div>
+
+
+        <!-- Title -->
+
+        <h1 class="title">
+
+            And then,
+
+            <br>
+
+            <span>
+                you happened.
+            </span>
+
+        </h1>
+
+
+        <!-- Main Quote -->
+
+        <section class="quote-section">
+
+
+            <span
+                class="quote-mark left">
+                “
+            </span>
+
+
+            <p class="quote">
+
+                I don't remember the exact moment
+                you became important to me.
+
+                <small>
+                    Maybe that's what makes it beautiful.
+                </small>
+
+            </p>
+
+
+            <span
+                class="quote-mark right">
+                ”
+            </span>
+
+
+        </section>
+
+
+        <!-- Story -->
+
+        <section class="story">
+
+
+            <p>
+
+                You didn't arrive with a warning
+                that you were going to matter this much.
+
+            </p>
+
+
+            <p>
+
+                There was no particular day,
+                no dramatic moment,
+                no sign telling me that someday
+                your presence would become something
+                I would quietly look for in my days.
+
+            </p>
+
+
+            <p class="emphasis">
+
+                You were simply there.
+
+            </p>
+
+
+            <p>
+
+                A conversation.
+                A laugh.
+                A random message.
+                Another ordinary day.
+
+                <br><br>
+
+                Nothing extraordinary.
+
+                <br>
+
+                At least,
+                that's what I thought then.
+
+            </p>
+
+
+            <p>
+
+                Because I didn't know that
+                sometimes the most beautiful things
+                begin as moments we don't think
+                are important enough to remember.
+
+            </p>
+
+
+        </section>
+
+
+        <!-- Realization -->
+
+        <section class="realization">
+
+
+            <div class="vertical-line"></div>
+
+
+            <p class="realization-intro">
+
+                SOMEWHERE ALONG THE WAY
+
+            </p>
+
+
+            <h2>
+
+                You became a part of my life
+
+                <br>
+
+                <span>
+                    without even trying.
+                </span>
+
+            </h2>
+
+
+        </section>
+
+
+        <!-- Ending -->
+
+        <section class="ending">
+
+
+            <p>
+
+                Maybe some people aren't meant
+                to enter your life loudly.
+
+            </p>
+
+
+            <p class="final-thought">
+
+                Maybe they are meant to arrive quietly...
+
+                <br><br>
+
+                and stay in places
+                words cannot reach.
+
+            </p>
+
+
+        </section>
+
+
+        <!-- Continue -->
+
+        <button
+            class="continue"
+            id="continueButton">
+
+            Continue the story
+
+            <span>
+                ↓
+            </span>
+
+        </button>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         PAGE 2 → PAGE 3 TRANSITION
+    ===================================================== -->
+
+
+    <div
+        class="page-transition"
+        id="pageTransition">
+
+
+        <div class="transition-message">
+
+            There is more I never said...
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+        /* =====================================================
+           CREATE STARS
+        ===================================================== */
+
+
+        const stars =
+            document.getElementById(
+                "stars"
+            );
+
+
+        for (
+            let i = 0;
+            i < 100;
+            i++
+        ) {
+
+
+            const star =
+                document.createElement(
+                    "div"
+                );
+
+
+            star.classList.add(
+                "star"
+            );
+
+
+            star.style.left =
+                Math.random() *
+                100 +
+                "%";
+
+
+            star.style.top =
+                Math.random() *
+                100 +
+                "%";
+
+
+            const size =
+                Math.random() *
+                2 +
+                1;
+
+
+            star.style.width =
+                size +
+                "px";
+
+
+            star.style.height =
+                size +
+                "px";
+
+
+            star.style.animationDelay =
+                Math.random() *
+                4 +
+                "s";
+
+
+            star.style.animationDuration =
+                (
+                    3 +
+                    Math.random() *
+                    4
+                ) +
+                "s";
+
+
+            stars.appendChild(
+                star
+            );
+
+        }
+
+
+        /* =====================================================
+           PAGE 2 → PAGE 3
+        ===================================================== */
+
+
+        const continueButton =
+            document.getElementById(
+                "continueButton"
+            );
+
+
+        const pageTransition =
+            document.getElementById(
+                "pageTransition"
+            );
+
+
+        continueButton.addEventListener(
+            "click",
+            () => {
+
+
+                /*
+                    Step 1:
+                    Show cinematic overlay.
+                */
+
+                pageTransition
+                    .classList
+                    .add("active");
+
+
+                /*
+                    Step 2:
+                    Give the transition
+                    time to breathe.
+                */
+
+                setTimeout(() => {
+
+
+                    /*
+                        Step 3:
+                        Fade the current page.
+                    */
+
+                    document.body.style.opacity =
+                        "0";
+
+
+                }, 1200);
+
+
+                /*
+                    Step 4:
+                    Open Page 3.
+                */
+
+                setTimeout(() => {
+
+
+                    window.location.href =
+                        "page3.html";
+
+
+                }, 2200);
+
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

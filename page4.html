@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Things I Never Say</title>
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            background: #050509;
+
+            color: #f5f1f7;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            overflow-x: hidden;
+
+            opacity: 1;
+
+            transition:
+                opacity 1.5s ease;
+
+        }
+
+
+        /* =====================================================
+           MAIN PAGE
+        ===================================================== */
+
+        .page-four {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                110px 24px
+                170px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 25%,
+                    rgba(
+                        125,
+                        82,
+                        150,
+                        0.13
+                    ),
+                    transparent 40%
+                ),
+
+                #050509;
+
+        }
+
+
+        /* =====================================================
+           AMBIENT GLOW
+        ===================================================== */
+
+        .ambient {
+
+            position: absolute;
+
+            width: 700px;
+
+            height: 700px;
+
+            top: 5%;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(
+                        170,
+                        120,
+                        195,
+                        0.07
+                    ),
+                    transparent 68%
+                );
+
+            filter: blur(35px);
+
+            pointer-events: none;
+
+            animation:
+                breathe 9s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes breathe {
+
+            0%,
+            100% {
+
+                transform:
+                    translateX(-50%)
+                    scale(0.9);
+
+                opacity: 0.6;
+
+            }
+
+            50% {
+
+                transform:
+                    translateX(-50%)
+                    scale(1.1);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           STARS
+        ===================================================== */
+
+        .stars {
+
+            position: absolute;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+        }
+
+
+        .star {
+
+            position: absolute;
+
+            width: 2px;
+
+            height: 2px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.65
+                );
+
+            animation:
+                twinkle 5s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.08;
+            }
+
+            50% {
+                opacity: 0.75;
+            }
+
+        }
+
+
+        /* =====================================================
+           CHAPTER
+        ===================================================== */
+
+        .chapter {
+
+            position: relative;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.68rem;
+
+            letter-spacing: 6px;
+
+            color:
+                rgba(
+                    240,
+                    225,
+                    247,
+                    0.4
+                );
+
+            margin-bottom: 30px;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.5s
+                ease forwards;
+
+            animation-delay:
+                0.5s;
+
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .title {
+
+            position: relative;
+
+            text-align: center;
+
+            font-size:
+                clamp(
+                    3rem,
+                    8vw,
+                    6.8rem
+                );
+
+            line-height: 1.05;
+
+            font-weight: 400;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 95px;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.8s
+                ease forwards;
+
+            animation-delay:
+                1s;
+
+        }
+
+
+        .title span {
+
+            color:
+                #d9c1e6;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           INTRO
+        ===================================================== */
+
+        .intro {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 120px;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.8s
+                ease forwards;
+
+            animation-delay:
+                1.6s;
+
+        }
+
+
+        .intro p {
+
+            font-size:
+                clamp(
+                    1.4rem,
+                    3vw,
+                    2.5rem
+                );
+
+            line-height: 1.6;
+
+            font-style: italic;
+
+            color:
+                rgba(
+                    248,
+                    242,
+                    250,
+                    0.9
+                );
+
+        }
+
+
+        .intro small {
+
+            display: block;
+
+            margin-top: 28px;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.7rem;
+
+            letter-spacing: 4px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.35
+                );
+
+        }
+
+
+        /* =====================================================
+           UNSAID LETTER
+        ===================================================== */
+
+        .letter {
+
+            width:
+                min(
+                    760px,
+                    92%
+                );
+
+            position: relative;
+
+            margin-bottom: 130px;
+
+        }
+
+
+        .letter-line {
+
+            position: relative;
+
+            padding:
+                35px 0;
+
+            border-bottom:
+                1px solid
+                rgba(
+                    220,
+                    195,
+                    235,
+                    0.08
+                );
+
+            opacity: 0;
+
+            transform:
+                translateY(25px);
+
+            animation:
+                reveal 1.6s
+                ease forwards;
+
+        }
+
+
+        .letter-line:nth-child(1) {
+            animation-delay: 2.2s;
+        }
+
+
+        .letter-line:nth-child(2) {
+            animation-delay: 2.7s;
+        }
+
+
+        .letter-line:nth-child(3) {
+            animation-delay: 3.2s;
+        }
+
+
+        .letter-line:nth-child(4) {
+            animation-delay: 3.7s;
+        }
+
+
+        .letter-line:nth-child(5) {
+            animation-delay: 4.2s;
+        }
+
+
+        .letter-line p {
+
+            font-size:
+                clamp(
+                    1.05rem,
+                    2vw,
+                    1.3rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.62
+                );
+
+        }
+
+
+        .letter-line .highlight {
+
+            color:
+                rgba(
+                    242,
+                    225,
+                    249,
+                    0.92
+                );
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           SPECIAL LINE
+        ===================================================== */
+
+        .special-line {
+
+            text-align: center;
+
+            padding:
+                65px 20px !important;
+
+        }
+
+
+        .special-line p {
+
+            font-size:
+                clamp(
+                    1.4rem,
+                    3vw,
+                    2.1rem
+                ) !important;
+
+            color:
+                rgba(
+                    239,
+                    220,
+                    247,
+                    0.9
+                ) !important;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           REALIZATION
+        ===================================================== */
+
+        .realization {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 140px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                5.2s;
+
+        }
+
+
+        .line {
+
+            width: 1px;
+
+            height: 100px;
+
+            margin:
+                0 auto 50px;
+
+            background:
+
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(
+                        220,
+                        195,
+                        235,
+                        0.55
+                    ),
+                    transparent
+                );
+
+        }
+
+
+        .realization p {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.7rem;
+
+            letter-spacing: 4px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.35
+                );
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .realization h2 {
+
+            font-size:
+                clamp(
+                    2rem,
+                    5vw,
+                    4.2rem
+                );
+
+            line-height: 1.35;
+
+            font-weight: 400;
+
+        }
+
+
+        .realization h2 em {
+
+            color:
+                #d9bde5;
+
+        }
+
+
+        /* =====================================================
+           FINAL QUOTE
+        ===================================================== */
+
+        .final-quote {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 110px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                6.2s;
+
+        }
+
+
+        .final-quote p {
+
+            font-size:
+                clamp(
+                    1.2rem,
+                    2.8vw,
+                    2rem
+                );
+
+            line-height: 1.8;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.62
+                );
+
+        }
+
+
+        .final-quote .big {
+
+            margin-top: 35px;
+
+            font-size:
+                clamp(
+                    1.6rem,
+                    3.8vw,
+                    2.7rem
+                );
+
+            color:
+                rgba(
+                    241,
+                    221,
+                    248,
+                    0.92
+                );
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           NEXT BUTTON
+        ===================================================== */
+
+        .next-button {
+
+            background:
+                transparent;
+
+            border: none;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.45
+                );
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size:
+                0.8rem;
+
+            letter-spacing: 3px;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                7.8s;
+
+            transition:
+                color 0.4s ease;
+
+        }
+
+
+        .next-button:hover {
+
+            color:
+                #e3c7eb;
+
+        }
+
+
+        .next-button span {
+
+            display: block;
+
+            margin-top: 12px;
+
+            font-size: 1.4rem;
+
+            animation:
+                arrow 2s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes arrow {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(8px);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           TRANSITION
+        ===================================================== */
+
+        .transition-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            background:
+                #050509;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 1.4s ease;
+
+        }
+
+
+        .transition-screen.active {
+
+            opacity: 1;
+
+            pointer-events: all;
+
+        }
+
+
+        .transition-text {
+
+            text-align: center;
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    3vw,
+                    1.8rem
+                );
+
+            letter-spacing: 2px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.75
+                );
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            transition:
+                all 1.2s ease;
+
+        }
+
+
+        .transition-screen.active
+        .transition-text {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
+           REVEAL
+        ===================================================== */
+
+        @keyframes reveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+                filter:
+                    blur(7px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+                filter:
+                    blur(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .page-four {
+
+                padding:
+                    90px 20px
+                    120px;
+
+            }
+
+
+            .title {
+
+                letter-spacing:
+                    -1.5px;
+
+                margin-bottom:
+                    75px;
+
+            }
+
+
+            .intro {
+
+                margin-bottom:
+                    90px;
+
+            }
+
+
+            .letter {
+
+                width:
+                    94%;
+
+                margin-bottom:
+                    100px;
+
+            }
+
+
+            .letter-line {
+
+                padding:
+                    28px 0;
+
+            }
+
+
+            .letter-line p {
+
+                line-height:
+                    1.8;
+
+            }
+
+
+            .realization {
+
+                margin-bottom:
+                    100px;
+
+            }
+
+
+            .line {
+
+                height:
+                    70px;
+
+                margin-bottom:
+                    40px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         PAGE 4
+    ===================================================== -->
+
+
+    <main class="page-four">
+
+
+        <!-- Ambient -->
+
+        <div class="ambient"></div>
+
+
+        <!-- Stars -->
+
+        <div
+            class="stars"
+            id="stars">
+        </div>
+
+
+        <!-- Chapter -->
+
+        <div class="chapter">
+
+           For My Durshu...
+
+
+        </div>
+
+
+        <!-- Title -->
+
+        <h1 class="title">
+
+            Things
+
+            <br>
+
+            <span>
+                I never say.
+            </span>
+
+        </h1>
+
+
+        <!-- Intro -->
+
+        <section class="intro">
+
+            <p>
+
+                Some feelings are not difficult
+                because they are complicated...
+
+                <br>
+
+                They are difficult because
+                they mean too much.
+
+            </p>
+
+
+            <small>
+                THE WORDS I USUALLY KEEP QUIET
+            </small>
+
+        </section>
+
+
+        <!-- Letter -->
+
+        <section class="letter">
+
+
+            <div class="letter-line">
+
+                <p>
+
+                    I don't always tell you
+                    how much your presence means to me.
+
+                    <br><br>
+
+                    Not because it doesn't matter...
+
+                    <br>
+
+                    but because sometimes
+                    saying it out loud makes
+                    something beautiful feel
+                    too small for the words.
+
+                </p>
+
+            </div>
+
+
+            <div class="letter-line">
+
+                <p>
+
+                    I don't always tell you
+                    that some of my better days
+                    have your name somewhere inside them.
+
+                    <br><br>
+
+                    Sometimes it was just one message.
+                    One conversation.
+                    One stupid joke.
+
+                    <br><br>
+
+                    And somehow,
+                    the entire day felt lighter.
+
+                </p>
+
+            </div>
+
+
+            <div class="letter-line">
+
+                <p>
+
+                    I don't always tell you
+                    that I notice the little things.
+
+                    <br><br>
+
+                    The way you talk.
+                    The way you laugh.
+                    The things you remember.
+                    The things you don't realize
+                    I remember.
+
+                </p>
+
+            </div>
+
+
+            <div class="letter-line special-line">
+
+                <p>
+
+                    And I don't think
+                    you will ever completely understand
+
+                    <br><br>
+
+                    <span class="highlight">
+
+                        how deeply your existence
+                        has touched mine.
+
+                    </span>
+
+                </p>
+
+            </div>
+
+
+            <div class="letter-line">
+
+                <p>
+
+                    Maybe I don't say these things
+                    because I am afraid that words
+                    will make them ordinary.
+
+                    <br><br>
+
+                    And what I feel about having you
+                    in my life is never an ordinary thing.
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- Realization -->
+
+        <section class="realization">
+
+
+            <div class="line"></div>
+
+
+            <p>
+
+                IF I COULD SAY ONLY ONE THING
+
+            </p>
+
+
+            <h2>
+
+                I hope you know...
+
+                <br>
+
+                <em>
+                    you matter more than you realize.
+                </em>
+
+            </h2>
+
+
+        </section>
+
+
+        <!-- Final Quote -->
+
+        <section class="final-quote">
+
+
+            <p>
+
+                Some people become memories.
+
+                <br>
+
+                Some become chapters.
+
+            </p>
+
+
+            <p class="big">
+
+                And then there are those rare people
+                who quietly become a part of the story
+                itself.
+
+            </p>
+
+
+        </section>
+
+
+        <!-- Next -->
+
+        <button
+            class="next-button"
+            id="nextButton">
+
+            There is something
+            I want you to see...
+
+            <span>
+                ↓
+            </span>
+
+        </button>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         TRANSITION
+    ===================================================== -->
+
+
+    <div
+        class="transition-screen"
+        id="transitionScreen">
+
+
+        <div class="transition-text">
+
+            There is something
+            I want you to see...
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+        /* =====================================================
+           STARS
+        ===================================================== */
+
+
+        const starsContainer =
+            document.getElementById(
+                "stars"
+            );
+
+
+        for (
+            let i = 0;
+            i < 110;
+            i++
+        ) {
+
+            const star =
+                document.createElement(
+                    "div"
+                );
+
+
+            star.classList.add(
+                "star"
+            );
+
+
+            star.style.left =
+                Math.random() *
+                100 +
+                "%";
+
+
+            star.style.top =
+                Math.random() *
+                100 +
+                "%";
+
+
+            const size =
+                Math.random() *
+                2 +
+                1;
+
+
+            star.style.width =
+                size +
+                "px";
+
+
+            star.style.height =
+                size +
+                "px";
+
+
+            star.style.animationDelay =
+                Math.random() *
+                5 +
+                "s";
+
+
+            star.style.animationDuration =
+                (
+                    3 +
+                    Math.random() *
+                    5
+                ) +
+                "s";
+
+
+            starsContainer.appendChild(
+                star
+            );
+
+        }
+
+
+        /* =====================================================
+           PAGE 4 → PAGE 5
+        ===================================================== */
+
+
+        const nextButton =
+            document.getElementById(
+                "nextButton"
+            );
+
+
+        const transitionScreen =
+            document.getElementById(
+                "transitionScreen"
+            );
+
+
+        nextButton.addEventListener(
+            "click",
+            () => {
+
+
+                /*
+                    Start cinematic
+                    transition.
+                */
+
+                transitionScreen
+                    .classList
+                    .add("active");
+
+
+                /*
+                    Fade current page.
+                */
+
+                setTimeout(() => {
+
+                    document.body.style.opacity =
+                        "0";
+
+                }, 1200);
+
+
+                /*
+                    Open Page 5.
+                */
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        "page5.html";
+
+                }, 2200);
+
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

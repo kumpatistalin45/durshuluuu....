@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Somewhere Along The Way</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            background: #060509;
+
+            color: #f7f2f8;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            overflow-x: hidden;
+
+            opacity: 1;
+
+            transition:
+                opacity 1.4s ease;
+
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page-three {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                110px 24px
+                160px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            background:
+
+                radial-gradient(
+                    circle at 20% 30%,
+                    rgba(
+                        120,
+                        80,
+                        145,
+                        0.08
+                    ),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(
+                        145,
+                        90,
+                        155,
+                        0.07
+                    ),
+                    transparent 35%
+                ),
+
+                #060509;
+
+        }
+
+
+        /* =========================================
+           BACKGROUND LIGHT
+        ========================================= */
+
+        .glow-one {
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            top: 15%;
+            left: -250px;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(
+                        174,
+                        124,
+                        195,
+                        0.08
+                    ),
+                    transparent 70%
+                );
+
+            filter: blur(35px);
+
+            animation:
+                floatGlow 9s
+                ease-in-out
+                infinite;
+
+            pointer-events: none;
+
+        }
+
+
+        .glow-two {
+
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            right: -250px;
+            bottom: 15%;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(
+                        140,
+                        100,
+                        180,
+                        0.07
+                    ),
+                    transparent 70%
+                );
+
+            filter: blur(35px);
+
+            animation:
+                floatGlowTwo 11s
+                ease-in-out
+                infinite;
+
+            pointer-events: none;
+
+        }
+
+
+        @keyframes floatGlow {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(50px);
+
+            }
+
+        }
+
+
+        @keyframes floatGlowTwo {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-60px);
+
+            }
+
+        }
+
+
+        /* =========================================
+           STARS
+        ========================================= */
+
+        .stars {
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+        }
+
+
+        .star {
+
+            position: absolute;
+
+            width: 2px;
+            height: 2px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.65
+                );
+
+            border-radius: 50%;
+
+            animation:
+                twinkle 5s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+
+                opacity: 0.1;
+
+            }
+
+            50% {
+
+                opacity: 0.75;
+
+            }
+
+        }
+
+
+        /* =========================================
+           CHAPTER
+        ========================================= */
+
+        .chapter {
+
+            position: relative;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.68rem;
+
+            letter-spacing: 6px;
+
+            color:
+                rgba(
+                    240,
+                    225,
+                    247,
+                    0.4
+                );
+
+            margin-bottom: 30px;
+
+            animation:
+                reveal 1.5s
+                ease forwards;
+
+            opacity: 0;
+
+        }
+
+
+        /* =========================================
+           TITLE
+        ========================================= */
+
+        .title {
+
+            position: relative;
+
+            text-align: center;
+
+            font-size:
+                clamp(
+                    3rem,
+                    8vw,
+                    7rem
+                );
+
+            line-height: 1.03;
+
+            font-weight: 400;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 95px;
+
+            animation:
+                reveal 1.8s
+                ease forwards;
+
+            animation-delay:
+                0.4s;
+
+            opacity: 0;
+
+        }
+
+
+        .title span {
+
+            color:
+                #d9c1e6;
+
+            font-style:
+                italic;
+
+        }
+
+
+        /* =========================================
+           OPENING QUOTE
+        ========================================= */
+
+        .opening-quote {
+
+            position: relative;
+
+            width:
+                min(
+                    900px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 120px;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                1s;
+
+            opacity: 0;
+
+        }
+
+
+        .opening-quote p {
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    3.2vw,
+                    2.6rem
+                );
+
+            line-height: 1.55;
+
+            font-style:
+                italic;
+
+            color:
+                rgba(
+                    250,
+                    246,
+                    252,
+                    0.92
+                );
+
+        }
+
+
+        .opening-quote small {
+
+            display: block;
+
+            margin-top: 28px;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.75rem;
+
+            letter-spacing: 3px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.35
+                );
+
+        }
+
+
+        /* =========================================
+           JOURNEY
+        ========================================= */
+
+        .journey {
+
+            position: relative;
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 90px;
+
+            margin-bottom: 130px;
+
+        }
+
+
+        .journey-item {
+
+            display: grid;
+
+            grid-template-columns:
+                90px 1fr;
+
+            gap: 35px;
+
+            align-items: start;
+
+            opacity: 0;
+
+            transform:
+                translateY(30px);
+
+            animation:
+                reveal 1.5s
+                ease forwards;
+
+        }
+
+
+        .journey-item:nth-child(1) {
+
+            animation-delay:
+                1.8s;
+
+        }
+
+
+        .journey-item:nth-child(2) {
+
+            animation-delay:
+                2.3s;
+
+        }
+
+
+        .journey-item:nth-child(3) {
+
+            animation-delay:
+                2.8s;
+
+        }
+
+
+        .journey-item:nth-child(4) {
+
+            animation-delay:
+                3.3s;
+
+        }
+
+
+        .journey-number {
+
+            width: 58px;
+
+            height: 58px;
+
+            border:
+                1px solid
+                rgba(
+                    220,
+                    195,
+                    235,
+                    0.2
+                );
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.75rem;
+
+            color:
+                rgba(
+                    235,
+                    215,
+                    243,
+                    0.5
+                );
+
+        }
+
+
+        .journey-content h3 {
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    3vw,
+                    2.2rem
+                );
+
+            font-weight: 400;
+
+            margin-bottom: 18px;
+
+            color:
+                rgba(
+                    250,
+                    245,
+                    252,
+                    0.9
+                );
+
+        }
+
+
+        .journey-content p {
+
+            font-size:
+                clamp(
+                    1rem,
+                    2vw,
+                    1.2rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.53
+                );
+
+        }
+
+
+        /* =========================================
+           REALIZATION
+        ========================================= */
+
+        .realization {
+
+            width:
+                min(
+                    900px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 140px;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                4.3s;
+
+            opacity: 0;
+
+        }
+
+
+        .realization-line {
+
+            width: 1px;
+
+            height: 100px;
+
+            margin:
+                0 auto 50px;
+
+            background:
+
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(
+                        220,
+                        195,
+                        235,
+                        0.55
+                    ),
+                    transparent
+                );
+
+        }
+
+
+        .realization p {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.75rem;
+
+            letter-spacing: 4px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.35
+                );
+
+            margin-bottom: 32px;
+
+        }
+
+
+        .realization h2 {
+
+            font-size:
+                clamp(
+                    2rem,
+                    5vw,
+                    4.5rem
+                );
+
+            font-weight: 400;
+
+            line-height: 1.35;
+
+        }
+
+
+        .realization h2 em {
+
+            color:
+                #d9bfe6;
+
+        }
+
+
+        /* =========================================
+           DEEP QUOTE
+        ========================================= */
+
+        .deep-quote {
+
+            width:
+                min(
+                    800px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 130px;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                5.2s;
+
+            opacity: 0;
+
+        }
+
+
+        .deep-quote p {
+
+            font-size:
+                clamp(
+                    1.4rem,
+                    3vw,
+                    2.4rem
+                );
+
+            line-height: 1.65;
+
+            font-style:
+                italic;
+
+            color:
+                rgba(
+                    235,
+                    218,
+                    243,
+                    0.82
+                );
+
+        }
+
+
+        /* =========================================
+           FINAL SECTION
+        ========================================= */
+
+        .final-section {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 110px;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                6.1s;
+
+            opacity: 0;
+
+        }
+
+
+        .final-section p {
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    2.4vw,
+                    1.5rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.52
+                );
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .final-section .strong {
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    3.5vw,
+                    2.4rem
+                );
+
+            color:
+                rgba(
+                    245,
+                    230,
+                    250,
+                    0.92
+                );
+
+            font-style:
+                italic;
+
+        }
+
+
+        /* =========================================
+           NEXT BUTTON
+        ========================================= */
+
+        .next-button {
+
+            background:
+                transparent;
+
+            border: none;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.45
+                );
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.8rem;
+
+            letter-spacing: 3px;
+
+            cursor: pointer;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                7.5s;
+
+            opacity: 0;
+
+            transition:
+                color 0.4s ease;
+
+        }
+
+
+        .next-button:hover {
+
+            color:
+                #e2c7ec;
+
+        }
+
+
+        .next-button span {
+
+            display: block;
+
+            margin-top: 12px;
+
+            font-size: 1.4rem;
+
+            animation:
+                arrow 2s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes arrow {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(8px);
+
+            }
+
+        }
+
+
+        /* =========================================
+           PAGE TRANSITION
+        ========================================= */
+
+        .transition-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            background:
+                #060509;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 1.4s ease;
+
+        }
+
+
+        .transition-screen.active {
+
+            opacity: 1;
+
+            pointer-events: all;
+
+        }
+
+
+        .transition-text {
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    3vw,
+                    1.8rem
+                );
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.75
+                );
+
+            letter-spacing: 2px;
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            transition:
+                all 1.2s ease;
+
+        }
+
+
+        .transition-screen.active
+        .transition-text {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =========================================
+           GENERAL REVEAL
+        ========================================= */
+
+        @keyframes reveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+                filter:
+                    blur(7px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+                filter:
+                    blur(0);
+
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 650px) {
+
+            .page-three {
+
+                padding:
+                    90px 20px
+                    120px;
+
+            }
+
+
+            .title {
+
+                letter-spacing:
+                    -1.5px;
+
+                margin-bottom:
+                    75px;
+
+            }
+
+
+            .opening-quote {
+
+                margin-bottom:
+                    90px;
+
+            }
+
+
+            .journey {
+
+                gap:
+                    65px;
+
+            }
+
+
+            .journey-item {
+
+                grid-template-columns:
+                    55px 1fr;
+
+                gap:
+                    20px;
+
+            }
+
+
+            .journey-number {
+
+                width: 45px;
+
+                height: 45px;
+
+                font-size:
+                    0.65rem;
+
+            }
+
+
+            .journey-content p {
+
+                line-height:
+                    1.8;
+
+            }
+
+
+            .realization {
+
+                margin-bottom:
+                    100px;
+
+            }
+
+
+            .realization-line {
+
+                height:
+                    70px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         PAGE 3
+    ========================================= -->
+
+
+    <main class="page-three">
+
+
+        <!-- Background Glow -->
+
+        <div class="glow-one"></div>
+
+        <div class="glow-two"></div>
+
+
+        <!-- Stars -->
+
+        <div
+            class="stars"
+            id="stars">
+        </div>
+
+
+        <!-- Chapter -->
+
+        <div class="chapter">
+
+            For My Durshu...
+
+
+        </div>
+
+
+        <!-- Title -->
+
+        <h1 class="title">
+
+            Somewhere
+
+            <br>
+
+            <span>
+                along the way...
+            </span>
+
+        </h1>
+
+
+        <!-- Opening Quote -->
+
+        <section class="opening-quote">
+
+
+            <p>
+
+                I never noticed the moment
+                when talking to you became
+                something I started looking forward to.
+
+            </p>
+
+
+            <small>
+
+                SOME THINGS CHANGE QUIETLY
+
+            </small>
+
+
+        </section>
+
+
+        <!-- Journey -->
+
+        <section class="journey">
+
+
+            <!-- 01 -->
+
+            <div class="journey-item">
+
+
+                <div class="journey-number">
+
+                    01
+
+                </div>
+
+
+                <div class="journey-content">
+
+
+                    <h3>
+
+                        The conversations
+
+                    </h3>
+
+
+                    <p>
+
+                        At first, they were just conversations.
+                        Words exchanged between two people
+                        passing through ordinary days.
+                        But somewhere between the jokes,
+                        the random thoughts and the endless talks,
+                        your words started feeling familiar.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- 02 -->
+
+            <div class="journey-item">
+
+
+                <div class="journey-number">
+
+                    02
+
+                </div>
+
+
+                <div class="journey-content">
+
+
+                    <h3>
+
+                        The little things
+
+                    </h3>
+
+
+                    <p>
+
+                        It wasn't always the big moments.
+                        Sometimes it was the smallest things —
+                        a message, a question, a laugh,
+                        a simple "are you okay?"
+                        Things that probably meant nothing
+                        to you at the time...
+                        but somehow stayed with me.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- 03 -->
+
+            <div class="journey-item">
+
+
+                <div class="journey-number">
+
+                    03
+
+                </div>
+
+
+                <div class="journey-content">
+
+
+                    <h3>
+
+                        The ordinary days
+
+                    </h3>
+
+
+                    <p>
+
+                        And then the ordinary days
+                        started feeling a little different.
+                        Because somewhere inside them,
+                        there was always a possibility
+                        that I would hear from you,
+                        talk to you,
+                        laugh with you,
+                        or simply know that you were there.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- 04 -->
+
+            <div class="journey-item">
+
+
+                <div class="journey-number">
+
+                    04
+
+                </div>
+
+
+                <div class="journey-content">
+
+
+                    <h3>
+
+                        The realization
+
+                    </h3>
+
+
+                    <p>
+
+                        I didn't plan for you to become
+                        such an important part of my life.
+                        I don't think you planned it either.
+                        It simply happened —
+                        quietly,
+                        naturally,
+                        beautifully.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- Realization -->
+
+        <section class="realization">
+
+
+            <div class="realization-line"></div>
+
+
+            <p>
+
+                AND THEN I REALIZED
+
+            </p>
+
+
+            <h2>
+
+                I wasn't just living my days anymore...
+
+                <br>
+
+                <em>
+                    I was looking for you in them.
+                </em>
+
+            </h2>
+
+
+        </section>
+
+
+        <!-- Deep Quote -->
+
+        <section class="deep-quote">
+
+
+            <p>
+
+                "The strange thing about becoming
+                important to someone is that you rarely
+                notice it happening.
+                You only notice when their absence
+                suddenly feels different."
+
+            </p>
+
+
+        </section>
+
+
+        <!-- Final Section -->
+
+        <section class="final-section">
+
+
+            <p>
+
+                Maybe that's what makes certain
+                friendships so beautiful.
+
+            </p>
+
+
+            <p>
+
+                They don't arrive with promises.
+                They don't announce how long
+                they are going to stay.
+
+            </p>
+
+
+            <p class="strong">
+
+                They simply become a part of you...
+
+                <br>
+
+                before you even realize
+                you were making room for them.
+
+            </p>
+
+
+        </section>
+
+
+        <!-- Next Button -->
+
+        <button
+            class="next-button"
+            id="nextButton"
+        >
+
+            There is more I never said
+
+            <span>
+
+                ↓
+
+            </span>
+
+        </button>
+
+
+    </main>
+
+
+    <!-- =========================================
+         TRANSITION TO PAGE 4
+    ========================================= -->
+
+
+    <div
+        class="transition-screen"
+        id="transitionScreen"
+    >
+
+        <div class="transition-text">
+
+            There is more I never said...
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+
+        /* =========================================
+           CREATE STARS
+        ========================================= */
+
+
+        const starsContainer =
+            document.getElementById(
+                "stars"
+            );
+
+
+        for (
+            let i = 0;
+            i < 110;
+            i++
+        ) {
+
+
+            const star =
+                document.createElement(
+                    "div"
+                );
+
+
+            star.className =
+                "star";
+
+
+            star.style.left =
+                Math.random() *
+                100 +
+                "%";
+
+
+            star.style.top =
+                Math.random() *
+                100 +
+                "%";
+
+
+            const size =
+                Math.random() *
+                2 +
+                1;
+
+
+            star.style.width =
+                size +
+                "px";
+
+
+            star.style.height =
+                size +
+                "px";
+
+
+            star.style.animationDelay =
+                Math.random() *
+                5 +
+                "s";
+
+
+            star.style.animationDuration =
+                (
+                    3 +
+                    Math.random() *
+                    5
+                ) +
+                "s";
+
+
+            starsContainer.appendChild(
+                star
+            );
+
+        }
+
+
+        /* =========================================
+           PAGE 3 → PAGE 4
+        ========================================= */
+
+
+        const nextButton =
+            document.getElementById(
+                "nextButton"
+            );
+
+
+        const transitionScreen =
+            document.getElementById(
+                "transitionScreen"
+            );
+
+
+        nextButton.addEventListener(
+            "click",
+            () => {
+
+
+                /*
+                    Show transition screen
+                */
+
+                transitionScreen
+                    .classList
+                    .add("active");
+
+
+                /*
+                    Fade current page
+                */
+
+                setTimeout(() => {
+
+                    document.body.style.opacity =
+                        "0";
+
+                }, 900);
+
+
+                /*
+                    Redirect to Page 4
+                */
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        "page4.html";
+
+                }, 1800);
+
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

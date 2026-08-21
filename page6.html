@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>If You Ever Wonder</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            background: #050509;
+
+            color: #f5f1f7;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            overflow-x: hidden;
+
+            opacity: 1;
+
+            transition:
+                opacity 1.5s ease;
+
+        }
+
+
+        /* =====================================================
+           MAIN PAGE
+        ===================================================== */
+
+        .page-six {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                110px 24px
+                180px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 18%,
+                    rgba(
+                        135,
+                        90,
+                        160,
+                        0.14
+                    ),
+                    transparent 40%
+                ),
+
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(
+                        110,
+                        75,
+                        145,
+                        0.07
+                    ),
+                    transparent 35%
+                ),
+
+                #050509;
+
+        }
+
+
+        /* =====================================================
+           AMBIENT LIGHT
+        ===================================================== */
+
+        .ambient {
+
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            top: -170px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(
+                        180,
+                        130,
+                        205,
+                        0.08
+                    ),
+                    transparent 68%
+                );
+
+            filter: blur(35px);
+
+            pointer-events: none;
+
+            animation:
+                breathe 9s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes breathe {
+
+            0%,
+            100% {
+
+                transform:
+                    translateX(-50%)
+                    scale(0.9);
+
+                opacity: 0.55;
+
+            }
+
+            50% {
+
+                transform:
+                    translateX(-50%)
+                    scale(1.1);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           STARS
+        ===================================================== */
+
+        .stars {
+
+            position: absolute;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+        }
+
+
+        .star {
+
+            position: absolute;
+
+            width: 2px;
+
+            height: 2px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.65
+                );
+
+            animation:
+                twinkle 5s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+
+                opacity: 0.08;
+
+            }
+
+            50% {
+
+                opacity: 0.75;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CHAPTER
+        ===================================================== */
+
+        .chapter {
+
+            position: relative;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.68rem;
+
+            letter-spacing: 6px;
+
+            color:
+                rgba(
+                    240,
+                    225,
+                    247,
+                    0.4
+                );
+
+            margin-bottom: 30px;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.5s
+                ease forwards;
+
+            animation-delay:
+                0.5s;
+
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .title {
+
+            position: relative;
+
+            text-align: center;
+
+            font-size:
+                clamp(
+                    3rem,
+                    8vw,
+                    6.7rem
+                );
+
+            line-height: 1.04;
+
+            font-weight: 400;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 100px;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.8s
+                ease forwards;
+
+            animation-delay:
+                1s;
+
+        }
+
+
+        .title span {
+
+            color:
+                #d9c1e6;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           OPENING
+        ===================================================== */
+
+        .opening {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 120px;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.8s
+                ease forwards;
+
+            animation-delay:
+                1.6s;
+
+        }
+
+
+        .opening p {
+
+            font-size:
+                clamp(
+                    1.4rem,
+                    3vw,
+                    2.45rem
+                );
+
+            line-height: 1.6;
+
+            font-style: italic;
+
+            color:
+                rgba(
+                    249,
+                    243,
+                    251,
+                    0.9
+                );
+
+        }
+
+
+        .opening small {
+
+            display: block;
+
+            margin-top: 28px;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.7rem;
+
+            letter-spacing: 4px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.34
+                );
+
+        }
+
+
+        /* =====================================================
+           CENTER QUOTE
+        ===================================================== */
+
+        .center-quote {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 120px;
+
+            position: relative;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.8s
+                ease forwards;
+
+            animation-delay:
+                2.1s;
+
+        }
+
+
+        .quote-mark {
+
+            position: absolute;
+
+            font-size: 9rem;
+
+            line-height: 1;
+
+            color:
+                rgba(
+                    190,
+                    150,
+                    215,
+                    0.08
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        .quote-mark.left {
+
+            left: -40px;
+
+            top: -65px;
+
+        }
+
+
+        .quote-mark.right {
+
+            right: -40px;
+
+            bottom: -100px;
+
+        }
+
+
+        .center-quote p {
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    3.4vw,
+                    2.7rem
+                );
+
+            line-height: 1.6;
+
+            color:
+                rgba(
+                    242,
+                    226,
+                    248,
+                    0.88
+                );
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           MEANING
+        ===================================================== */
+
+        .meaning {
+
+            width:
+                min(
+                    760px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 130px;
+
+        }
+
+
+        .meaning-item {
+
+            padding:
+                48px 20px;
+
+            border-bottom:
+                1px solid
+                rgba(
+                    220,
+                    195,
+                    235,
+                    0.08
+                );
+
+            opacity: 0;
+
+            transform:
+                translateY(30px);
+
+            animation:
+                reveal 1.5s
+                ease forwards;
+
+        }
+
+
+        .meaning-item:nth-child(1) {
+            animation-delay: 2.8s;
+        }
+
+
+        .meaning-item:nth-child(2) {
+            animation-delay: 3.3s;
+        }
+
+
+        .meaning-item:nth-child(3) {
+            animation-delay: 3.8s;
+        }
+
+
+        .meaning-item:nth-child(4) {
+            animation-delay: 4.3s;
+        }
+
+
+        .meaning-item h3 {
+
+            font-size:
+                clamp(
+                    1.4rem,
+                    2.7vw,
+                    2rem
+                );
+
+            font-weight: 400;
+
+            margin-bottom: 18px;
+
+            color:
+                rgba(
+                    250,
+                    245,
+                    252,
+                    0.88
+                );
+
+        }
+
+
+        .meaning-item p {
+
+            font-size:
+                clamp(
+                    1rem,
+                    2vw,
+                    1.15rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.5
+                );
+
+        }
+
+
+        /* =====================================================
+           BIG REALIZATION
+        ===================================================== */
+
+        .realization {
+
+            width:
+                min(
+                    900px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 140px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                5s;
+
+        }
+
+
+        .vertical-line {
+
+            width: 1px;
+
+            height: 100px;
+
+            margin:
+                0 auto 50px;
+
+            background:
+
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(
+                        220,
+                        195,
+                        235,
+                        0.55
+                    ),
+                    transparent
+                );
+
+        }
+
+
+        .realization p {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.7rem;
+
+            letter-spacing: 4px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.34
+                );
+
+            margin-bottom: 32px;
+
+        }
+
+
+        .realization h2 {
+
+            font-size:
+                clamp(
+                    2rem,
+                    5vw,
+                    4.3rem
+                );
+
+            font-weight: 400;
+
+            line-height: 1.35;
+
+        }
+
+
+        .realization h2 span {
+
+            color:
+                #d9bde5;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           FINAL MESSAGE
+        ===================================================== */
+
+        .final-message {
+
+            width:
+                min(
+                    820px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 120px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                6s;
+
+        }
+
+
+        .final-message p {
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    2.4vw,
+                    1.5rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.55
+                );
+
+            margin-bottom: 32px;
+
+        }
+
+
+        .final-message .strong {
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    3.5vw,
+                    2.5rem
+                );
+
+            color:
+                rgba(
+                    241,
+                    222,
+                    248,
+                    0.92
+                );
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           NEXT BUTTON
+        ===================================================== */
+
+        .next-button {
+
+            border: none;
+
+            background:
+                transparent;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.45
+                );
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.8rem;
+
+            letter-spacing: 3px;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                7.4s;
+
+            transition:
+                color 0.4s ease;
+
+        }
+
+
+        .next-button:hover {
+
+            color:
+                #e3c8eb;
+
+        }
+
+
+        .next-button span {
+
+            display: block;
+
+            margin-top: 12px;
+
+            font-size: 1.4rem;
+
+            animation:
+                arrow 2s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes arrow {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(8px);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           TRANSITION
+        ===================================================== */
+
+        .transition-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            background:
+                #050509;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 1.4s ease;
+
+        }
+
+
+        .transition-screen.active {
+
+            opacity: 1;
+
+            pointer-events: all;
+
+        }
+
+
+        .transition-text {
+
+            text-align: center;
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    3vw,
+                    1.8rem
+                );
+
+            letter-spacing: 2px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.75
+                );
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            transition:
+                all 1.2s ease;
+
+        }
+
+
+        .transition-screen.active
+        .transition-text {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
+           REVEAL
+        ===================================================== */
+
+        @keyframes reveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+                filter:
+                    blur(7px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+                filter:
+                    blur(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .page-six {
+
+                padding:
+                    90px 20px
+                    120px;
+
+            }
+
+
+            .title {
+
+                letter-spacing:
+                    -1.5px;
+
+                margin-bottom:
+                    75px;
+
+            }
+
+
+            .opening {
+
+                margin-bottom:
+                    90px;
+
+            }
+
+
+            .center-quote {
+
+                margin-bottom:
+                    90px;
+
+            }
+
+
+            .quote-mark {
+
+                font-size:
+                    5rem;
+
+            }
+
+
+            .quote-mark.left {
+
+                left:
+                    -10px;
+
+                top:
+                    -45px;
+
+            }
+
+
+            .quote-mark.right {
+
+                right:
+                    -10px;
+
+                bottom:
+                    -70px;
+
+            }
+
+
+            .meaning-item {
+
+                padding:
+                    35px 10px;
+
+            }
+
+
+            .realization {
+
+                margin-bottom:
+                    100px;
+
+            }
+
+
+            .vertical-line {
+
+                height:
+                    70px;
+
+                margin-bottom:
+                    40px;
+
+            }
+
+
+            .final-message {
+
+                margin-bottom:
+                    90px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         PAGE 6
+    ===================================================== -->
+
+
+    <main class="page-six">
+
+
+        <!-- Ambient -->
+
+        <div class="ambient"></div>
+
+
+        <!-- Stars -->
+
+        <div
+            class="stars"
+            id="stars">
+        </div>
+
+
+        <!-- Chapter -->
+
+        <div class="chapter">
+
+            For My Durshu...
+
+
+        </div>
+
+
+        <!-- Title -->
+
+        <h1 class="title">
+
+            If you ever
+
+            <br>
+
+            <span>
+                wonder...
+            </span>
+
+        </h1>
+
+
+        <!-- Opening -->
+
+        <section class="opening">
+
+            <p>
+
+                If you ever wonder
+                what you really mean to me...
+
+                <br>
+
+                I hope this page gives you
+                at least a small answer.
+
+            </p>
+
+
+            <small>
+
+                SOME THINGS ARE FELT,
+                NOT EXPLAINED
+
+            </small>
+
+        </section>
+
+
+        <!-- Center Quote -->
+
+        <section class="center-quote">
+
+
+            <span class="quote-mark left">
+
+                “
+
+            </span>
+
+
+            <p>
+
+                You became important to me
+                without asking to be.
+
+                And somehow,
+                that makes it even more beautiful.
+
+            </p>
+
+
+            <span class="quote-mark right">
+
+                ”
+
+            </span>
+
+
+        </section>
+
+
+        <!-- Meaning -->
+
+        <section class="meaning">
+
+
+            <!-- 01 -->
+
+            <div class="meaning-item">
+
+                <h3>
+
+                    You became comfort.
+
+                </h3>
+
+
+                <p>
+
+                    Someone I could talk to
+                    without having to prepare
+                    the perfect words first.
+
+                    <br>
+
+                    Someone around whom
+                    silence never felt awkward.
+
+                </p>
+
+            </div>
+
+
+            <!-- 02 -->
+
+            <div class="meaning-item">
+
+                <h3>
+
+                    You became familiarity.
+
+                </h3>
+
+
+                <p>
+
+                    Your presence started feeling
+                    like something I had known
+                    for much longer than I actually had.
+
+                    <br>
+
+                    Like a place I could return to.
+
+                </p>
+
+            </div>
+
+
+            <!-- 03 -->
+
+            <div class="meaning-item">
+
+                <h3>
+
+                    You became one of my constants.
+
+                </h3>
+
+
+                <p>
+
+                    Life changes.
+                    People change.
+                    Days change.
+
+                    <br>
+
+                    But somehow,
+                    knowing you were there
+                    made some things feel steady.
+
+                </p>
+
+            </div>
+
+
+            <!-- 04 -->
+
+            <div class="meaning-item">
+
+                <h3>
+
+                    You became someone I genuinely care about.
+
+                </h3>
+
+
+                <p>
+
+                    Not because I was supposed to.
+
+                    <br>
+
+                    Not because I decided to.
+
+                    <br>
+
+                    It simply happened.
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- Realization -->
+
+        <section class="realization">
+
+
+            <div class="vertical-line"></div>
+
+
+            <p>
+
+                MAYBE THIS IS WHAT I WAS TRYING TO SAY
+
+            </p>
+
+
+            <h2>
+
+                You didn't just become
+                someone I know...
+
+                <br>
+
+                <span>
+                    you became someone
+                    I never want to lose.
+                </span>
+
+            </h2>
+
+
+        </section>
+
+
+        <!-- Final -->
+
+        <section class="final-message">
+
+
+            <p>
+
+                And if life ever takes us
+                to different places,
+                different routines,
+                different versions of ourselves...
+
+            </p>
+
+
+            <p class="strong">
+
+                I hope there will always be
+                a small part of you
+                that remembers
+                how much you mattered here.
+
+            </p>
+
+
+        </section>
+
+
+        <!-- Next -->
+
+        <button
+            class="next-button"
+            id="nextButton">
+
+            I have one more thing
+            to tell you...
+
+            <span>
+
+                ↓
+
+            </span>
+
+        </button>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         TRANSITION
+    ===================================================== -->
+
+
+    <div
+        class="transition-screen"
+        id="transitionScreen">
+
+
+        <div class="transition-text">
+
+            I have one more thing
+            to tell you...
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+        /* =====================================================
+           CREATE STARS
+        ===================================================== */
+
+
+        const starsContainer =
+            document.getElementById(
+                "stars"
+            );
+
+
+        for (
+            let i = 0;
+            i < 110;
+            i++
+        ) {
+
+
+            const star =
+                document.createElement(
+                    "div"
+                );
+
+
+            star.classList.add(
+                "star"
+            );
+
+
+            star.style.left =
+                Math.random() *
+                100 +
+                "%";
+
+
+            star.style.top =
+                Math.random() *
+                100 +
+                "%";
+
+
+            const size =
+                Math.random() *
+                2 +
+                1;
+
+
+            star.style.width =
+                size +
+                "px";
+
+
+            star.style.height =
+                size +
+                "px";
+
+
+            star.style.animationDelay =
+                Math.random() *
+                5 +
+                "s";
+
+
+            star.style.animationDuration =
+                (
+                    3 +
+                    Math.random() *
+                    5
+                ) +
+                "s";
+
+
+            starsContainer.appendChild(
+                star
+            );
+
+        }
+
+
+        /* =====================================================
+           PAGE 6 → PAGE 7
+        ===================================================== */
+
+
+        const nextButton =
+            document.getElementById(
+                "nextButton"
+            );
+
+
+        const transitionScreen =
+            document.getElementById(
+                "transitionScreen"
+            );
+
+
+        nextButton.addEventListener(
+            "click",
+            () => {
+
+
+                /*
+                    Start cinematic transition
+                */
+
+                transitionScreen
+                    .classList
+                    .add("active");
+
+
+                /*
+                    Fade current page
+                */
+
+                setTimeout(() => {
+
+                    document.body.style.opacity =
+                        "0";
+
+                }, 900);
+
+
+                /*
+                    Redirect to Page 7
+                */
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        "page7.html";
+
+                }, 1800);
+
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>If I Could Give You One Thing</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            background: #050509;
+
+            color: #f5f1f7;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            overflow-x: hidden;
+
+            opacity: 1;
+
+            transition:
+                opacity 1.5s ease;
+
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .page-seven {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                110px 24px
+                180px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(
+                        145,
+                        95,
+                        170,
+                        0.15
+                    ),
+                    transparent 42%
+                ),
+
+                radial-gradient(
+                    circle at 15% 75%,
+                    rgba(
+                        110,
+                        75,
+                        145,
+                        0.07
+                    ),
+                    transparent 35%
+                ),
+
+                #050509;
+
+        }
+
+
+        /* =====================================================
+           AMBIENT
+        ===================================================== */
+
+        .ambient {
+
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            top: -180px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(
+                        180,
+                        125,
+                        205,
+                        0.08
+                    ),
+                    transparent 68%
+                );
+
+            filter: blur(35px);
+
+            animation:
+                breathe 9s
+                ease-in-out
+                infinite;
+
+            pointer-events: none;
+
+        }
+
+
+        @keyframes breathe {
+
+            0%,
+            100% {
+
+                transform:
+                    translateX(-50%)
+                    scale(0.9);
+
+                opacity: 0.55;
+
+            }
+
+            50% {
+
+                transform:
+                    translateX(-50%)
+                    scale(1.1);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           STARS
+        ===================================================== */
+
+        .stars {
+
+            position: absolute;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+        }
+
+
+        .star {
+
+            position: absolute;
+
+            width: 2px;
+
+            height: 2px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.65
+                );
+
+            animation:
+                twinkle 5s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+
+                opacity: 0.08;
+
+            }
+
+            50% {
+
+                opacity: 0.75;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CHAPTER
+        ===================================================== */
+
+        .chapter {
+
+            position: relative;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.68rem;
+
+            letter-spacing: 6px;
+
+            color:
+                rgba(
+                    240,
+                    225,
+                    247,
+                    0.4
+                );
+
+            margin-bottom: 30px;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.5s
+                ease forwards;
+
+            animation-delay:
+                0.5s;
+
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .title {
+
+            position: relative;
+
+            text-align: center;
+
+            font-size:
+                clamp(
+                    3rem,
+                    8vw,
+                    6.8rem
+                );
+
+            line-height: 1.04;
+
+            font-weight: 400;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 100px;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.8s
+                ease forwards;
+
+            animation-delay:
+                1s;
+
+        }
+
+
+        .title span {
+
+            color:
+                #d9c1e6;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           OPENING
+        ===================================================== */
+
+        .opening {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 125px;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.8s
+                ease forwards;
+
+            animation-delay:
+                1.6s;
+
+        }
+
+
+        .opening p {
+
+            font-size:
+                clamp(
+                    1.4rem,
+                    3vw,
+                    2.5rem
+                );
+
+            line-height: 1.6;
+
+            font-style: italic;
+
+            color:
+                rgba(
+                    249,
+                    243,
+                    251,
+                    0.9
+                );
+
+        }
+
+
+        .opening small {
+
+            display: block;
+
+            margin-top: 28px;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.7rem;
+
+            letter-spacing: 4px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.34
+                );
+
+        }
+
+
+        /* =====================================================
+           GIFT OF WORDS
+        ===================================================== */
+
+        .gift {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 0;
+
+            margin-bottom: 140px;
+
+        }
+
+
+        .gift-item {
+
+            position: relative;
+
+            padding:
+                55px 20px;
+
+            text-align: center;
+
+            border-bottom:
+                1px solid
+                rgba(
+                    220,
+                    195,
+                    235,
+                    0.08
+                );
+
+            opacity: 0;
+
+            transform:
+                translateY(30px);
+
+            animation:
+                reveal 1.6s
+                ease forwards;
+
+        }
+
+
+        .gift-item:nth-child(1) {
+            animation-delay: 2.2s;
+        }
+
+
+        .gift-item:nth-child(2) {
+            animation-delay: 2.7s;
+        }
+
+
+        .gift-item:nth-child(3) {
+            animation-delay: 3.2s;
+        }
+
+
+        .gift-item:nth-child(4) {
+            animation-delay: 3.7s;
+        }
+
+
+        .gift-number {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.65rem;
+
+            letter-spacing: 4px;
+
+            color:
+                rgba(
+                    230,
+                    210,
+                    240,
+                    0.3
+                );
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .gift-item h3 {
+
+            font-size:
+                clamp(
+                    1.4rem,
+                    3vw,
+                    2.1rem
+                );
+
+            font-weight: 400;
+
+            margin-bottom: 18px;
+
+            color:
+                rgba(
+                    250,
+                    245,
+                    252,
+                    0.9
+                );
+
+        }
+
+
+        .gift-item p {
+
+            max-width:
+                650px;
+
+            margin:
+                0 auto;
+
+            font-size:
+                clamp(
+                    1rem,
+                    2vw,
+                    1.18rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.52
+                );
+
+        }
+
+
+        /* =====================================================
+           SPECIAL
+        ===================================================== */
+
+        .special {
+
+            padding:
+                80px 20px !important;
+
+        }
+
+
+        .special h3 {
+
+            font-size:
+                clamp(
+                    1.7rem,
+                    3.5vw,
+                    2.7rem
+                ) !important;
+
+            color:
+                rgba(
+                    241,
+                    221,
+                    248,
+                    0.92
+                ) !important;
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           REALIZATION
+        ===================================================== */
+
+        .realization {
+
+            width:
+                min(
+                    900px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 140px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                4.6s;
+
+        }
+
+
+        .vertical-line {
+
+            width: 1px;
+
+            height: 100px;
+
+            margin:
+                0 auto 50px;
+
+            background:
+
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(
+                        220,
+                        195,
+                        235,
+                        0.55
+                    ),
+                    transparent
+                );
+
+        }
+
+
+        .realization p {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.7rem;
+
+            letter-spacing: 4px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.34
+                );
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .realization h2 {
+
+            font-size:
+                clamp(
+                    2rem,
+                    5vw,
+                    4.4rem
+                );
+
+            line-height: 1.35;
+
+            font-weight: 400;
+
+        }
+
+
+        .realization h2 em {
+
+            color:
+                #d9bde5;
+
+        }
+
+
+        /* =====================================================
+           DEEPEST MESSAGE
+        ===================================================== */
+
+        .deepest {
+
+            width:
+                min(
+                    820px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 120px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                5.6s;
+
+        }
+
+
+        .deepest p {
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    2.4vw,
+                    1.5rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.55
+                );
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .deepest .strong {
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    3.6vw,
+                    2.6rem
+                );
+
+            color:
+                rgba(
+                    241,
+                    222,
+                    248,
+                    0.93
+                );
+
+            font-style: italic;
+
+        }
+
+
+        /* =====================================================
+           NEXT
+        ===================================================== */
+
+        .next-button {
+
+            border: none;
+
+            background:
+                transparent;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.45
+                );
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.8rem;
+
+            letter-spacing: 3px;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay:
+                7.2s;
+
+            transition:
+                color 0.4s ease;
+
+        }
+
+
+        .next-button:hover {
+
+            color:
+                #e3c8eb;
+
+        }
+
+
+        .next-button span {
+
+            display: block;
+
+            margin-top: 12px;
+
+            font-size: 1.4rem;
+
+            animation:
+                arrow 2s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        @keyframes arrow {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(8px);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           TRANSITION
+        ===================================================== */
+
+        .transition-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            background:
+                #050509;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 1.4s ease;
+
+        }
+
+
+        .transition-screen.active {
+
+            opacity: 1;
+
+            pointer-events: all;
+
+        }
+
+
+        .transition-text {
+
+            text-align: center;
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    3vw,
+                    1.8rem
+                );
+
+            letter-spacing: 2px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.75
+                );
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            transition:
+                all 1.2s ease;
+
+        }
+
+
+        .transition-screen.active
+        .transition-text {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
+           REVEAL
+        ===================================================== */
+
+        @keyframes reveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+                filter:
+                    blur(7px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+                filter:
+                    blur(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .page-seven {
+
+                padding:
+                    90px 20px
+                    120px;
+
+            }
+
+
+            .title {
+
+                letter-spacing:
+                    -1.5px;
+
+                margin-bottom:
+                    75px;
+
+            }
+
+
+            .opening {
+
+                margin-bottom:
+                    90px;
+
+            }
+
+
+            .gift {
+
+                margin-bottom:
+                    100px;
+
+            }
+
+
+            .gift-item {
+
+                padding:
+                    42px 10px;
+
+            }
+
+
+            .special {
+
+                padding:
+                    60px 10px !important;
+
+            }
+
+
+            .realization {
+
+                margin-bottom:
+                    100px;
+
+            }
+
+
+            .vertical-line {
+
+                height:
+                    70px;
+
+                margin-bottom:
+                    40px;
+
+            }
+
+
+            .deepest {
+
+                margin-bottom:
+                    90px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         PAGE 7
+    ===================================================== -->
+
+
+    <main class="page-seven">
+
+
+        <!-- Ambient -->
+
+        <div class="ambient"></div>
+
+
+        <!-- Stars -->
+
+        <div
+            class="stars"
+            id="stars">
+        </div>
+
+
+        <!-- Chapter -->
+
+        <div class="chapter">
+
+          For My Durshu...
+
+
+        </div>
+
+
+        <!-- Title -->
+
+        <h1 class="title">
+
+            If I could give you
+
+            <br>
+
+            <span>
+                one thing...
+            </span>
+
+        </h1>
+
+
+        <!-- Opening -->
+
+        <section class="opening">
+
+            <p>
+
+                It wouldn't be something
+                I could wrap in a box.
+
+                <br>
+
+                It wouldn't be something
+                money could buy.
+
+            </p>
+
+
+            <small>
+
+                SOME GIFTS HAVE NO SHAPE
+
+            </small>
+
+        </section>
+
+
+        <!-- Gifts -->
+
+        <section class="gift">
+
+
+            <!-- 01 -->
+
+            <div class="gift-item">
+
+                <div class="gift-number">
+
+                    GIFT 01
+
+                </div>
+
+
+                <h3>
+
+                    I would give you perspective of mine.
+
+                </h3>
+
+
+                <p>
+
+                    The ability to see yourself
+                    through my eyes .
+
+                    <br><br>
+
+                    Maybe then you would understand
+                    just how special you really are to me.
+
+                </p>
+
+            </div>
+
+
+            <!-- 02 -->
+
+            <div class="gift-item">
+
+                <div class="gift-number">
+
+                    GIFT 02
+
+                </div>
+
+
+                <h3>
+
+                    I would give you peace.
+
+                </h3>
+
+
+                <p>
+
+                    On the days when life feels
+                    heavier than usual,
+                    I wish you could always find
+                    a quiet place inside yourself
+                    where everything feels okay again.
+
+                </p>
+
+            </div>
+
+
+            <!-- 03 -->
+
+            <div class="gift-item">
+
+                <div class="gift-number">
+
+                    GIFT 03
+
+                </div>
+
+
+                <h3>
+
+                    I would give you certainty.
+
+                </h3>
+
+
+                <p>
+
+                    The certainty that you are loved,
+                    valued and appreciated.
+
+                    <br><br>
+
+                    Not because of what you do
+                    for anyone...
+
+                    <br>
+
+                    but simply because
+                    you are you.
+
+                </p>
+
+            </div>
+
+
+            <!-- 04 -->
+
+            <div class="gift-item special">
+
+                <div class="gift-number">
+
+                    GIFT 04
+
+                </div>
+
+
+                <h3>
+
+                    And if I could give you
+                    one last thing...
+
+                </h3>
+
+
+                <p>
+
+                    I would give you the ability
+                    to see yourself the way
+                    I see you.
+
+                    <br><br>
+
+                    Maybe then you would finally
+                    understand why your existence
+                    means so much.
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- Realization -->
+
+        <section class="realization">
+
+
+            <div class="vertical-line"></div>
+
+
+            <p>
+
+                BECAUSE SOMEONE SHOULD TELL YOU
+
+            </p>
+
+
+            <h2>
+
+                You are more important
+
+                <br>
+
+                <em>
+                    than you think you are.
+                </em>
+
+            </h2>
+
+
+        </section>
+
+
+        <!-- Deepest -->
+
+        <section class="deepest">
+
+
+            <p>
+
+                And if you ever have a day
+                where you question your worth...
+
+            </p>
+
+
+            <p class="strong">
+
+                Come back to this page.
+
+                <br><br>
+
+                And remember that somewhere,
+                someone is genuinely grateful
+                that you exist.
+
+            </p>
+
+
+        </section>
+
+
+        <!-- Next -->
+
+        <button
+            class="next-button"
+            id="nextButton">
+
+            Now let me tell you
+            why today matters...
+
+            <span>
+                ↓
+            </span>
+
+        </button>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         TRANSITION
+    ===================================================== -->
+
+
+    <div
+        class="transition-screen"
+        id="transitionScreen">
+
+
+        <div class="transition-text">
+
+            Now let me tell you
+            why today matters...
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+        /* =====================================================
+           CREATE STARS
+        ===================================================== */
+
+
+        const starsContainer =
+            document.getElementById(
+                "stars"
+            );
+
+
+        for (
+            let i = 0;
+            i < 110;
+            i++
+        ) {
+
+
+            const star =
+                document.createElement(
+                    "div"
+                );
+
+
+            star.classList.add(
+                "star"
+            );
+
+
+            star.style.left =
+                Math.random() *
+                100 +
+                "%";
+
+
+            star.style.top =
+                Math.random() *
+                100 +
+                "%";
+
+
+            const size =
+                Math.random() *
+                2 +
+                1;
+
+
+            star.style.width =
+                size +
+                "px";
+
+
+            star.style.height =
+                size +
+                "px";
+
+
+            star.style.animationDelay =
+                Math.random() *
+                5 +
+                "s";
+
+
+            star.style.animationDuration =
+                (
+                    3 +
+                    Math.random() *
+                    5
+                ) +
+                "s";
+
+
+            starsContainer.appendChild(
+                star
+            );
+
+        }
+
+
+        /* =====================================================
+           PAGE 7 → PAGE 8
+        ===================================================== */
+
+
+        const nextButton =
+            document.getElementById(
+                "nextButton"
+            );
+
+
+        const transitionScreen =
+            document.getElementById(
+                "transitionScreen"
+            );
+
+
+        nextButton.addEventListener(
+            "click",
+            () => {
+
+
+                /*
+                    Start cinematic transition
+                */
+
+                transitionScreen
+                    .classList
+                    .add("active");
+
+
+                /*
+                    Fade current page
+                */
+
+                setTimeout(() => {
+
+                    document.body.style.opacity =
+                        "0";
+
+                }, 900);
+
+
+                /*
+                    Redirect to Page 8
+                */
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        "page8.html";
+
+                }, 1800);
+
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>For You — Happy Birthday</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050509;
+            color: #f5f1f7;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+            overflow-x: hidden;
+            opacity: 1;
+            transition: opacity 1.5s ease;
+        }
+
+        /* =====================================================
+           MAIN PAGE
+        ===================================================== */
+
+        .page-nine {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                120px 24px
+                180px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 15%,
+                    rgba(
+                        170,
+                        110,
+                        190,
+                        0.17
+                    ),
+                    transparent 42%
+                ),
+
+                radial-gradient(
+                    circle at 20% 75%,
+                    rgba(
+                        125,
+                        80,
+                        155,
+                        0.08
+                    ),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 80% 85%,
+                    rgba(
+                        155,
+                        95,
+                        175,
+                        0.07
+                    ),
+                    transparent 35%
+                ),
+
+                #050509;
+        }
+
+
+        /* =====================================================
+           CENTRAL GLOW
+        ===================================================== */
+
+        .central-glow {
+
+            position: absolute;
+
+            width: 800px;
+
+            height: 800px;
+
+            top: -230px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(
+                        195,
+                        140,
+                        215,
+                        0.10
+                    ),
+                    transparent 68%
+                );
+
+            filter: blur(40px);
+
+            animation:
+                breathe 9s
+                ease-in-out
+                infinite;
+
+            pointer-events: none;
+        }
+
+
+        @keyframes breathe {
+
+            0%,
+            100% {
+
+                transform:
+                    translateX(-50%)
+                    scale(0.9);
+
+                opacity: 0.55;
+            }
+
+            50% {
+
+                transform:
+                    translateX(-50%)
+                    scale(1.1);
+
+                opacity: 1;
+            }
+        }
+
+
+        /* =====================================================
+           STARS
+        ===================================================== */
+
+        .stars {
+
+            position: absolute;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+        }
+
+
+        .star {
+
+            position: absolute;
+
+            width: 2px;
+
+            height: 2px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.7
+                );
+
+            animation:
+                twinkle 5s
+                ease-in-out
+                infinite;
+        }
+
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.08;
+            }
+
+            50% {
+                opacity: 0.85;
+            }
+        }
+
+
+        /* =====================================================
+           CHAPTER
+        ===================================================== */
+
+        .chapter {
+
+            position: relative;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.68rem;
+
+            letter-spacing: 6px;
+
+            color:
+                rgba(
+                    240,
+                    225,
+                    247,
+                    0.4
+                );
+
+            margin-bottom: 40px;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.5s
+                ease forwards;
+
+            animation-delay: 0.5s;
+        }
+
+
+        /* =====================================================
+           OPENING
+        ===================================================== */
+
+        .opening {
+
+            width:
+                min(
+                    900px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 110px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay: 1s;
+        }
+
+
+        .opening p {
+
+            font-size:
+                clamp(
+                    1.3rem,
+                    3vw,
+                    2.4rem
+                );
+
+            line-height: 1.65;
+
+            color:
+                rgba(
+                    249,
+                    243,
+                    251,
+                    0.82
+                );
+
+            font-style: italic;
+        }
+
+
+        /* =====================================================
+           LETTER
+        ===================================================== */
+
+        .letter {
+
+            width:
+                min(
+                    780px,
+                    92%
+                );
+
+            margin-bottom: 120px;
+        }
+
+
+        .letter-intro {
+
+            font-size:
+                clamp(
+                    1.2rem,
+                    2.5vw,
+                    1.65rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.63
+                );
+
+            margin-bottom: 55px;
+
+            opacity: 0;
+
+            animation:
+                reveal 1.7s
+                ease forwards;
+
+            animation-delay: 1.8s;
+        }
+
+
+        .letter-block {
+
+            margin-bottom: 45px;
+
+            opacity: 0;
+
+            transform:
+                translateY(25px);
+
+            animation:
+                reveal 1.6s
+                ease forwards;
+        }
+
+
+        .letter-block:nth-child(2) {
+            animation-delay: 2.5s;
+        }
+
+
+        .letter-block:nth-child(3) {
+            animation-delay: 3.1s;
+        }
+
+
+        .letter-block:nth-child(4) {
+            animation-delay: 3.7s;
+        }
+
+
+        .letter-block:nth-child(5) {
+            animation-delay: 4.3s;
+        }
+
+
+        .letter-block:nth-child(6) {
+            animation-delay: 4.9s;
+        }
+
+
+        .letter-block p {
+
+            font-size:
+                clamp(
+                    1rem,
+                    2vw,
+                    1.25rem
+                );
+
+            line-height: 1.95;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.54
+                );
+        }
+
+
+        .letter-block .highlight {
+
+            color:
+                rgba(
+                    239,
+                    217,
+                    247,
+                    0.92
+                );
+
+            font-style: italic;
+        }
+
+
+        /* =====================================================
+           EMOTIONAL LINE
+        ===================================================== */
+
+        .emotional-line {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin:
+                50px 0 140px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay: 5.7s;
+        }
+
+
+        .emotional-line .vertical {
+
+            width: 1px;
+
+            height: 100px;
+
+            margin:
+                0 auto 50px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(
+                        220,
+                        195,
+                        235,
+                        0.6
+                    ),
+                    transparent
+                );
+        }
+
+
+        .emotional-line p {
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    3.8vw,
+                    3rem
+                );
+
+            line-height: 1.5;
+
+            color:
+                rgba(
+                    241,
+                    222,
+                    248,
+                    0.9
+                );
+
+            font-style: italic;
+        }
+
+
+        /* =====================================================
+           BIRTHDAY
+        ===================================================== */
+
+        .birthday {
+
+            width:
+                min(
+                    1100px,
+                    94%
+                );
+
+            text-align: center;
+
+            margin-bottom: 120px;
+
+            opacity: 0;
+
+            animation:
+                revealBirthday 2.5s
+                ease forwards;
+
+            animation-delay: 6.8s;
+        }
+
+
+        .birthday-small {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size:
+                clamp(
+                    0.65rem,
+                    1.5vw,
+                    0.8rem
+                );
+
+            letter-spacing: 7px;
+
+            color:
+                rgba(
+                    240,
+                    220,
+                    247,
+                    0.42
+                );
+
+            margin-bottom: 35px;
+        }
+
+
+        .birthday h1 {
+
+            font-size:
+                clamp(
+                    3.2rem,
+                    10vw,
+                    9rem
+                );
+
+            line-height: 0.98;
+
+            font-weight: 400;
+
+            letter-spacing: -4px;
+
+            color:
+                #f9f1fb;
+
+            text-shadow:
+                0 0 50px
+                rgba(
+                    190,
+                    130,
+                    215,
+                    0.18
+                );
+        }
+
+
+        .birthday h1 span {
+
+            display: block;
+
+            color:
+                #dfbfe9;
+
+            font-style: italic;
+        }
+
+
+        /* =====================================================
+           WISH
+        ===================================================== */
+
+        .wish {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 110px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay: 8.5s;
+        }
+
+
+        .wish p {
+
+            font-size:
+                clamp(
+                    1.15rem,
+                    2.5vw,
+                    1.6rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.58
+                );
+
+            margin-bottom: 32px;
+        }
+
+
+        .wish .big-wish {
+
+            font-size:
+                clamp(
+                    1.5rem,
+                    3.7vw,
+                    2.6rem
+                );
+
+            color:
+                rgba(
+                    241,
+                    221,
+                    248,
+                    0.94
+                );
+
+            font-style: italic;
+        }
+
+
+        /* =====================================================
+           FINAL WORDS
+        ===================================================== */
+
+        .final-words {
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            text-align: center;
+
+            margin-bottom: 130px;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay: 9.8s;
+        }
+
+
+        .final-words p {
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    2.5vw,
+                    1.5rem
+                );
+
+            line-height: 1.9;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.55
+                );
+        }
+
+
+        .final-words .forever {
+
+            margin-top: 40px;
+
+            font-size:
+                clamp(
+                    1.4rem,
+                    3.5vw,
+                    2.4rem
+                );
+
+            color:
+                #dec2e8;
+
+            font-style: italic;
+        }
+
+
+        /* =====================================================
+           ENDING
+        ===================================================== */
+
+        .ending {
+
+            text-align: center;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay: 11s;
+        }
+
+
+        .ending p {
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.65rem;
+
+            letter-spacing: 5px;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.3
+                );
+        }
+
+
+        .ending .heart {
+
+            display: block;
+
+            margin-top: 20px;
+
+            font-size: 1.5rem;
+
+            color:
+                rgba(
+                    220,
+                    185,
+                    235,
+                    0.65
+                );
+
+            animation:
+                heartbeat 2.2s
+                ease-in-out
+                infinite;
+        }
+
+
+        /* =====================================================
+           PAGE 10 BUTTON
+        ===================================================== */
+
+        .next-button {
+
+            margin-top: 85px;
+
+            padding:
+                16px 34px;
+
+            border:
+                1px solid
+                rgba(
+                    220,
+                    195,
+                    235,
+                    0.28
+                );
+
+            border-radius: 100px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.025
+                );
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.62
+                );
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 0.75rem;
+
+            letter-spacing: 3px;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            animation:
+                reveal 2s
+                ease forwards;
+
+            animation-delay: 12.2s;
+
+            transition:
+                all 0.5s ease;
+        }
+
+
+        .next-button:hover {
+
+            color:
+                #ead3f0;
+
+            border-color:
+                rgba(
+                    220,
+                    195,
+                    235,
+                    0.7
+                );
+
+            background:
+                rgba(
+                    220,
+                    195,
+                    235,
+                    0.06
+                );
+
+            box-shadow:
+                0 0 35px
+                rgba(
+                    180,
+                    130,
+                    210,
+                    0.15
+                );
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        .next-button span {
+
+            display: block;
+
+            margin-top: 10px;
+
+            font-size: 1.2rem;
+
+            animation:
+                arrow 2s
+                ease-in-out
+                infinite;
+        }
+
+
+        /* =====================================================
+           TRANSITION
+        ===================================================== */
+
+        .transition-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 1000;
+
+            background:
+                #030305;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 1.5s ease;
+        }
+
+
+        .transition-screen.active {
+
+            opacity: 1;
+
+            pointer-events: all;
+        }
+
+
+        .transition-text {
+
+            width:
+                min(
+                    700px,
+                    88%
+                );
+
+            font-size:
+                clamp(
+                    1.1rem,
+                    3vw,
+                    1.8rem
+                );
+
+            letter-spacing: 2px;
+
+            line-height: 1.7;
+
+            color:
+                rgba(
+                    245,
+                    241,
+                    247,
+                    0.72
+                );
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            transition:
+                all 1.2s ease;
+        }
+
+
+        .transition-screen.active
+        .transition-text {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform:
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    scale(1.18);
+            }
+        }
+
+
+        @keyframes arrow {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(7px);
+            }
+        }
+
+
+        @keyframes reveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+                filter:
+                    blur(7px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+                filter:
+                    blur(0);
+            }
+        }
+
+
+        @keyframes revealBirthday {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.94)
+                    translateY(30px);
+
+                filter:
+                    blur(12px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+
+                filter:
+                    blur(0);
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .page-nine {
+
+                padding:
+                    90px 20px
+                    130px;
+            }
+
+
+            .opening {
+
+                margin-bottom:
+                    80px;
+            }
+
+
+            .letter {
+
+                margin-bottom:
+                    80px;
+            }
+
+
+            .letter-block {
+
+                margin-bottom:
+                    35px;
+            }
+
+
+            .emotional-line {
+
+                margin:
+                    30px 0 100px;
+            }
+
+
+            .emotional-line .vertical {
+
+                height:
+                    70px;
+
+                margin-bottom:
+                    40px;
+            }
+
+
+            .birthday {
+
+                margin-bottom:
+                    90px;
+            }
+
+
+            .birthday h1 {
+
+                letter-spacing:
+                    -2px;
+            }
+
+
+            .wish {
+
+                margin-bottom:
+                    80px;
+            }
+
+
+            .final-words {
+
+                margin-bottom:
+                    100px;
+            }
+
+
+            .next-button {
+
+                margin-top:
+                    65px;
+
+                max-width:
+                    90%;
+
+                padding:
+                    14px 25px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         PAGE 9
+    ===================================================== -->
+
+    <main class="page-nine">
+
+
+        <div class="central-glow"></div>
+
+
+        <div
+            class="stars"
+            id="stars">
+        </div>
+
+
+        <div class="chapter">
+
+            THE LAST PAGE
+
+        </div>
+
+
+        <!-- =================================================
+             OPENING
+        ================================================= -->
+
+        <section class="opening">
+
+            <p>
+
+                So...
+
+                <br><br>
+
+                after all those words,
+                all those memories,
+                and everything I never knew
+                how to say...
+
+                <br><br>
+
+                this is the one thing
+                I wanted you to read.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             LETTER
+        ================================================= -->
+
+        <section class="letter">
+
+
+            <p class="letter-intro">
+
+                Dear you,
+
+                <br><br>
+
+                I don't know if a website can ever
+                properly explain what a person means
+                to another person.
+
+                But I wanted to try.
+
+            </p>
+
+
+            <div class="letter-block">
+
+                <p>
+
+                    Because sometimes I look back
+                    at the days before you were
+                    such an important part of my life...
+
+                    <br><br>
+
+                    and it feels strange to imagine
+                    those days without knowing you.
+
+                </p>
+
+            </div>
+
+
+            <div class="letter-block">
+
+                <p>
+
+                    You came into my life without
+                    making some grand entrance.
+
+                    <br><br>
+
+                    There was no announcement
+                    that said you were going to
+                    become this important.
+
+                    <br><br>
+
+                    It just happened.
+
+                    <br>
+
+                    Quietly.
+
+                    <br>
+
+                    Naturally.
+
+                    <br>
+
+                    And somehow,
+                    beautifully.
+
+                </p>
+
+            </div>
+
+
+            <div class="letter-block">
+
+                <p>
+
+                    Somewhere between all the
+                    conversations, the laughter,
+                    the random moments,
+                    the little misunderstandings,
+                    and everything in between...
+
+                    <br><br>
+
+                    you became someone
+                    I genuinely care about.
+
+                </p>
+
+            </div>
+
+
+            <div class="letter-block">
+
+                <p>
+
+                    And I know I may not always
+                    say it properly.
+
+                    I may not always find
+                    the perfect words.
+
+                    <br><br>
+
+                    But please know this:
+
+                    <br><br>
+
+                    <span class="highlight">
+
+                        your presence in my life
+                        is something I will always
+                        be grateful for.
+
+                    </span>
+
+                </p>
+
+            </div>
+
+
+            <div class="letter-block">
+
+                <p>
+
+                    If life changes someday,
+                    if our routines change,
+                    if everything around us
+                    becomes different...
+
+                    <br><br>
+
+                    I hope one thing never changes.
+
+                    <br><br>
+
+                    The fact that once,
+                    in this huge world,
+                    two people crossed paths...
+
+                    <br>
+
+                    and somehow,
+                    one became incredibly
+                    important to the other.
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             EMOTIONAL LINE
+        ================================================= -->
+
+        <section class="emotional-line">
+
+            <div class="vertical"></div>
+
+            <p>
+
+                And if you ever forget
+                how special you are...
+
+                <br><br>
+
+                I hope you remember
+                that you have been
+                someone's reason to smile.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             BIRTHDAY
+        ================================================= -->
+
+        <section class="birthday">
+
+            <div class="birthday-small">
+
+                TODAY, I CELEBRATE YOU
+
+            </div>
+
+
+            <h1>
+
+                Happy
+
+                <span>
+
+                    Birthday.
+
+                </span>
+
+            </h1>
+
+        </section>
+
+
+        <!-- =================================================
+             WISH
+        ================================================= -->
+
+        <section class="wish">
+
+            <p>
+
+                I hope this new year of your life
+                brings you the kind of happiness
+                that stays.
+
+            </p>
+
+
+            <p>
+
+                I hope you meet people
+                who appreciate your heart,
+                moments that make you feel alive,
+                and days that remind you
+                how beautiful life can be.
+
+            </p>
+
+
+            <p class="big-wish">
+
+                And more than anything...
+
+                <br><br>
+
+                I hope you never forget
+                how incredibly worthy
+                you are of every good thing
+                coming your way.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             FINAL WORDS
+        ================================================= -->
+
+        <section class="final-words">
+
+            <p>
+
+                Thank you for existing.
+
+                <br>
+
+                Thank you for being you.
+
+                <br>
+
+                And thank you for becoming
+                one of the most beautiful
+                parts of my story.
+
+            </p>
+
+
+            <p class="forever">
+
+                Some people are temporary
+                chapters...
+
+                <br><br>
+
+                but some people leave
+                a permanent feeling.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             ENDING
+        ================================================= -->
+
+        <section class="ending">
+
+            <p>
+
+                WITH ALL THE WARMTH
+                IN MY HEART
+
+            </p>
+
+
+            <span class="heart">
+
+                ✦
+
+            </span>
+
+
+            <!-- =================================================
+                 PAGE 10 REDIRECT BUTTON
+            ================================================= -->
+
+            <button
+                class="next-button"
+                id="nextButton"
+            >
+
+                There is one more page...
+
+                <span>
+
+                    ↓
+
+                </span>
+
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         PAGE 10 TRANSITION
+    ===================================================== -->
+
+    <div
+        class="transition-screen"
+        id="transitionScreen"
+    >
+
+        <div class="transition-text">
+
+            One last surprise is waiting for you...
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           CREATE STARS
+        ===================================================== */
+
+        const starsContainer =
+            document.getElementById(
+                "stars"
+            );
+
+
+        for (
+            let i = 0;
+            i < 160;
+            i++
+        ) {
+
+            const star =
+                document.createElement(
+                    "div"
+                );
+
+
+            star.classList.add(
+                "star"
+            );
+
+
+            star.style.left =
+                Math.random() *
+                100 +
+                "%";
+
+
+            star.style.top =
+                Math.random() *
+                100 +
+                "%";
+
+
+            const size =
+                Math.random() *
+                2.2 +
+                0.8;
+
+
+            star.style.width =
+                size +
+                "px";
+
+
+            star.style.height =
+                size +
+                "px";
+
+
+            star.style.animationDelay =
+                Math.random() *
+                6 +
+                "s";
+
+
+            star.style.animationDuration =
+                (
+                    3 +
+                    Math.random() *
+                    5
+                ) +
+                "s";
+
+
+            starsContainer.appendChild(
+                star
+            );
+
+        }
+
+
+        /* =====================================================
+           PAGE 9 → PAGE 10
+        ===================================================== */
+
+        const nextButton =
+            document.getElementById(
+                "nextButton"
+            );
+
+
+        const transitionScreen =
+            document.getElementById(
+                "transitionScreen"
+            );
+
+
+        nextButton.addEventListener(
+            "click",
+            () => {
+
+                transitionScreen
+                    .classList
+                    .add("active");
+
+
+                setTimeout(
+                    () => {
+
+                        document.body.style.opacity =
+                            "0";
+
+                    },
+                    900
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        window.location.href =
+                            "page10.html";
+
+                    },
+                    1800
+                );
+
+            }
+        );
+
+
+    </script>
+
+</body>
+
+</html>
